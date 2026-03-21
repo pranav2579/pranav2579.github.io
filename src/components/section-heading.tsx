@@ -26,9 +26,9 @@ export default function SectionHeading({
       transition={{ duration: 0.6 }}
       className={`mb-16 ${align === "center" ? "text-center" : ""}`}
     >
-      <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{title}</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-4">{title}</h2>
       {subtitle && (
-        <p className="text-zinc-400 max-w-2xl mx-auto text-lg">{subtitle}</p>
+        <p className="text-muted max-w-2xl mx-auto text-lg">{subtitle}</p>
       )}
       <div
         className={`mt-4 h-1 w-16 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full ${

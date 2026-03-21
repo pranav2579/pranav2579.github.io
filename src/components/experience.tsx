@@ -11,7 +11,7 @@ export default function Experience() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="py-32 bg-zinc-900/50">
+    <section id="experience" className="py-32 bg-surface-alt">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="Experience"
@@ -20,7 +20,7 @@ export default function Experience() {
 
         <div ref={ref} className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-400/50 via-zinc-700 to-transparent" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-400/50 via-edge to-transparent" />
 
           {experiences.map((exp, index) => (
             <motion.div
@@ -33,7 +33,7 @@ export default function Experience() {
               }`}
             >
               {/* Timeline dot */}
-              <div className="absolute left-8 md:left-1/2 w-4 h-4 -translate-x-1/2 rounded-full bg-emerald-400 border-4 border-zinc-950 z-10" />
+              <div className="absolute left-8 md:left-1/2 w-4 h-4 -translate-x-1/2 rounded-full bg-emerald-400 border-4 border-timeline-dot-border z-10" />
 
               {/* Content card */}
               <div
@@ -41,28 +41,28 @@ export default function Experience() {
                   index % 2 === 0 ? "md:pr-8" : "md:pl-8"
                 }`}
               >
-                <div className="group p-6 rounded-2xl border border-zinc-800 bg-zinc-900/80 hover:border-emerald-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-400/5">
+                <div className="group p-6 rounded-2xl border border-edge bg-card-alt hover:border-emerald-400/30 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-400/5">
                   {/* Header */}
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="p-2 rounded-lg bg-emerald-500/10 shrink-0">
+                    <div className="p-2 rounded-lg bg-accent-subtle shrink-0">
                       <Briefcase className="text-emerald-400" size={20} />
                     </div>
                     <div>
-                      <h3 className="text-white font-bold text-lg">{exp.role}</h3>
+                      <h3 className="text-heading font-bold text-lg">{exp.role}</h3>
                       <p className="text-emerald-400 font-medium">{exp.company}</p>
-                      <p className="text-zinc-500 text-sm mt-1">
+                      <p className="text-faint text-sm mt-1">
                         {exp.period} · {exp.location}
                       </p>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="text-zinc-400 text-sm mb-4">{exp.description}</p>
+                  <p className="text-muted text-sm mb-4">{exp.description}</p>
 
                   {/* Achievements */}
                   <ul className="space-y-2 mb-4">
                     {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="flex gap-2 text-sm text-zinc-300">
+                      <li key={i} className="flex gap-2 text-sm text-body">
                         <span className="text-emerald-400 shrink-0 mt-1">▹</span>
                         <span>{achievement}</span>
                       </li>
@@ -74,7 +74,7 @@ export default function Experience() {
                     {exp.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs rounded-full bg-zinc-800 text-zinc-400 border border-zinc-700/50"
+                        className="px-3 py-1 text-xs rounded-full bg-tag text-muted border border-tag-border"
                       >
                         {tech}
                       </span>

@@ -3,21 +3,21 @@ import { siteConfig } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="py-12 bg-zinc-950 border-t border-zinc-800/50">
+    <footer className="py-12 bg-surface border-t border-edge/50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <span className="text-lg font-bold text-white font-mono">
+            <span className="text-lg font-bold text-heading font-mono">
               PT<span className="text-emerald-400">.</span>
             </span>
-            <span className="text-zinc-500 text-sm">
+            <span className="text-faint text-sm">
               © {new Date().getFullYear()} Pranav Tripathi
             </span>
           </div>
 
           {/* Built with */}
-          <p className="text-zinc-500 text-sm flex items-center gap-1">
+          <p className="text-faint text-sm flex items-center gap-1">
             Built with Next.js, Tailwind &amp;{" "}
             <Heart size={14} className="text-red-400 fill-red-400" />
           </p>
@@ -38,7 +38,7 @@ export default function Footer() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 hover:text-emerald-400 transition-colors"
+                className="text-faint hover:text-emerald-400 transition-colors"
                 aria-label={label}
               >
                 <Icon size={18} />

@@ -1,14 +1,97 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Light theme (default) */
 :root {
-  --background: #09090b;
-  --foreground: #fafafa;
+  --surface: #ffffff;
+  --surface-alt: #f4f4f5;
+  --card: #ffffff;
+  --card-alt: #f9fafb;
+  --tag: #e4e4e7;
+  --tag-border: #d4d4d8;
+  --heading: #09090b;
+  --body: #3f3f46;
+  --muted: #71717a;
+  --faint: #a1a1aa;
+  --edge: #e4e4e7;
+  --edge-subtle: rgba(228, 228, 231, 0.5);
+  --input-bg: #f4f4f5;
+  --input-border: #d4d4d8;
+  --hero-bg: #f8fafc;
+  --hero-gradient-from: rgba(16, 185, 129, 0.08);
+  --hero-gradient-via: #f8fafc;
+  --hero-gradient-to: #f8fafc;
+  --hero-orb1: rgba(16, 185, 129, 0.06);
+  --hero-orb2: rgba(59, 130, 246, 0.06);
+  --nav-scrolled: rgba(255, 255, 255, 0.8);
+  --nav-border: rgba(228, 228, 231, 0.5);
+  --timeline-dot-border: #ffffff;
+  --scrollbar-track: #ffffff;
+  --scrollbar-thumb: #d4d4d8;
+  --scrollbar-hover: #a1a1aa;
+  --selection-bg: rgba(16, 185, 129, 0.15);
+  --selection-color: #09090b;
+  --accent-subtle-bg: rgba(16, 185, 129, 0.08);
+  --amber-subtle-bg: rgba(245, 158, 11, 0.08);
+}
+
+/* Dark theme */
+.dark {
+  --surface: #09090b;
+  --surface-alt: rgba(24, 24, 27, 0.5);
+  --card: rgba(24, 24, 27, 0.5);
+  --card-alt: rgba(24, 24, 27, 0.8);
+  --tag: #27272a;
+  --tag-border: rgba(63, 63, 70, 0.5);
+  --heading: #ffffff;
+  --body: #d4d4d8;
+  --muted: #a1a1aa;
+  --faint: #71717a;
+  --edge: #27272a;
+  --edge-subtle: rgba(63, 63, 70, 0.5);
+  --input-bg: rgba(39, 39, 42, 0.5);
+  --input-border: #3f3f46;
+  --hero-bg: #09090b;
+  --hero-gradient-from: rgba(6, 78, 59, 0.2);
+  --hero-gradient-via: #09090b;
+  --hero-gradient-to: #09090b;
+  --hero-orb1: rgba(16, 185, 129, 0.05);
+  --hero-orb2: rgba(59, 130, 246, 0.05);
+  --nav-scrolled: rgba(9, 9, 11, 0.8);
+  --nav-border: rgba(39, 39, 42, 0.5);
+  --timeline-dot-border: #09090b;
+  --scrollbar-track: #09090b;
+  --scrollbar-thumb: #27272a;
+  --scrollbar-hover: #3f3f46;
+  --selection-bg: rgba(52, 211, 153, 0.2);
+  --selection-color: #ffffff;
+  --accent-subtle-bg: rgba(52, 211, 153, 0.1);
+  --amber-subtle-bg: rgba(245, 158, 11, 0.1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-card: var(--card);
+  --color-card-alt: var(--card-alt);
+  --color-tag: var(--tag);
+  --color-tag-border: var(--tag-border);
+  --color-heading: var(--heading);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-edge: var(--edge);
+  --color-edge-subtle: var(--edge-subtle);
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
+  --color-hero-bg: var(--hero-bg);
+  --color-nav-scrolled: var(--nav-scrolled);
+  --color-nav-border: var(--nav-border);
+  --color-timeline-dot-border: var(--timeline-dot-border);
+  --color-accent-subtle: var(--accent-subtle-bg);
+  --color-amber-subtle: var(--amber-subtle-bg);
+  --color-background: var(--surface);
+  --color-foreground: var(--heading);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -18,9 +101,10 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--surface);
+  color: var(--heading);
   font-family: var(--font-sans), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom scrollbar */
@@ -29,20 +113,25 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: var(--scrollbar-hover);
 }
 
 /* Selection */
 ::selection {
-  background-color: rgba(52, 211, 153, 0.2);
-  color: #ffffff;
+  background-color: var(--selection-bg);
+  color: var(--selection-color);
+}
+
+/* Hero gradient uses CSS variables */
+.hero-gradient {
+  background: radial-gradient(ellipse at top, var(--hero-gradient-from), var(--hero-gradient-via), var(--hero-gradient-to));
 }

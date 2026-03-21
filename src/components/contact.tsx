@@ -28,7 +28,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 bg-zinc-900/50">
+    <section id="contact" className="py-32 bg-surface-alt">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="Get in Touch"
@@ -43,7 +43,7 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            <p className="text-zinc-400 leading-relaxed">
+            <p className="text-muted leading-relaxed">
               I&apos;m always open to discussing new opportunities, interesting projects,
               or just having a conversation about technology and engineering at scale.
             </p>
@@ -76,22 +76,22 @@ export default function Contact() {
                 },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-4">
-                  <div className="p-2 rounded-lg bg-emerald-500/10">
+                  <div className="p-2 rounded-lg bg-accent-subtle">
                     <item.icon className="text-emerald-400" size={20} />
                   </div>
                   <div>
-                    <p className="text-zinc-500 text-xs">{item.label}</p>
+                    <p className="text-faint text-xs">{item.label}</p>
                     {item.href ? (
                       <a
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-zinc-300 hover:text-emerald-400 transition-colors"
+                        className="text-body hover:text-emerald-400 transition-colors"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <p className="text-zinc-300">{item.value}</p>
+                      <p className="text-body">{item.value}</p>
                     )}
                   </div>
                 </div>
@@ -109,10 +109,10 @@ export default function Contact() {
               <div className="h-full flex items-center justify-center p-8 rounded-2xl border border-emerald-400/30 bg-emerald-500/5">
                 <div className="text-center">
                   <div className="text-4xl mb-4">✉️</div>
-                  <h3 className="text-white font-bold text-xl mb-2">
+                  <h3 className="text-heading font-bold text-xl mb-2">
                     Message Sent!
                   </h3>
-                  <p className="text-zinc-400">
+                  <p className="text-muted">
                     Thanks for reaching out. I&apos;ll get back to you soon.
                   </p>
                 </div>
@@ -122,7 +122,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm text-zinc-400 mb-2"
+                    className="block text-sm text-muted mb-2"
                   >
                     Name
                   </label>
@@ -134,14 +134,14 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormState({ ...formState, name: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl bg-zinc-800/50 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-400/50 focus:ring-1 focus:ring-emerald-400/50 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-input-bg border border-input-border text-heading placeholder-faint focus:outline-none focus:border-emerald-400/50 focus:ring-1 focus:ring-emerald-400/50 transition-all"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm text-zinc-400 mb-2"
+                    className="block text-sm text-muted mb-2"
                   >
                     Email
                   </label>
@@ -153,14 +153,14 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormState({ ...formState, email: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl bg-zinc-800/50 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-400/50 focus:ring-1 focus:ring-emerald-400/50 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-input-bg border border-input-border text-heading placeholder-faint focus:outline-none focus:border-emerald-400/50 focus:ring-1 focus:ring-emerald-400/50 transition-all"
                     placeholder="your@email.com"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm text-zinc-400 mb-2"
+                    className="block text-sm text-muted mb-2"
                   >
                     Message
                   </label>
@@ -172,14 +172,14 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormState({ ...formState, message: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl bg-zinc-800/50 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-400/50 focus:ring-1 focus:ring-emerald-400/50 transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-input-bg border border-input-border text-heading placeholder-faint focus:outline-none focus:border-emerald-400/50 focus:ring-1 focus:ring-emerald-400/50 transition-all resize-none"
                     placeholder="Tell me about your project or opportunity..."
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-emerald-500 hover:bg-emerald-400 disabled:bg-emerald-500/50 text-zinc-950 font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-emerald-500/25"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-emerald-500 hover:bg-emerald-400 disabled:bg-emerald-500/50 text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-emerald-500/25"
                 >
                   {isSubmitting ? (
                     "Sending..."

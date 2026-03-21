@@ -10,7 +10,7 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-32 bg-zinc-900/50">
+    <section id="skills" className="py-32 bg-surface-alt">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="Skills & Expertise"
@@ -26,19 +26,19 @@ export default function Skills() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="group p-6 rounded-2xl border border-zinc-800 bg-zinc-900/50 hover:border-emerald-400/30 transition-all duration-300"
+                className="group p-6 rounded-2xl border border-edge bg-card hover:border-emerald-400/30 transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-emerald-500/10 group-hover:bg-emerald-500/20 transition-colors">
+                  <div className="p-2 rounded-lg bg-accent-subtle group-hover:bg-emerald-500/20 transition-colors">
                     <Icon className="text-emerald-400" size={20} />
                   </div>
-                  <h3 className="text-white font-semibold">{category.name}</h3>
+                  <h3 className="text-heading font-semibold">{category.name}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-xs rounded-lg bg-zinc-800/80 text-zinc-400 border border-zinc-700/50 hover:text-emerald-400 hover:border-emerald-400/30 transition-all cursor-default"
+                      className="px-3 py-1.5 text-xs rounded-lg bg-tag text-muted border border-tag-border hover:text-emerald-400 hover:border-emerald-400/30 transition-all cursor-default"
                     >
                       {skill}
                     </span>
