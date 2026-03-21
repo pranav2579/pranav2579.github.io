@@ -13,7 +13,7 @@ export const siteConfig = {
   name: "Pranav Tripathi",
   title: "Pranav Tripathi — Staff Software Engineer",
   description:
-    "Staff Software Engineer with 13+ years of experience building products used by 400M+ people. IIT BHU alumnus. Ex-Microsoft.",
+    "Senior Software Engineer Technical Lead with 13+ years of experience building products used by 400M+ people. IIT BHU alumnus. Microsoft, Ex-Workday.",
   url: "https://pranavtripathi.dev",
   links: {
     github: "https://github.com/pranav2579",
@@ -35,34 +35,68 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    id: "microsoft-3",
+    id: "microsoft-4",
     company: "Microsoft",
-    role: "Staff Software Engineer",
-    period: "2020 — Present",
+    role: "Senior Software Engineer Technical Lead",
+    period: "Nov 2025 — Present",
     location: "Vancouver, Canada",
     description:
-      "Leading design and implementation of scalable systems powering Windows, Microsoft Store, and AI-driven products.",
+      "Lead Senior Software Engineer on the XBOX Gaming AI team, driving AI-powered experiences for gaming.",
     achievements: [
-      "Led Paint Co-Creator (DALL-E AI image generation) — serving 100M+ monthly users",
-      "Built Windows Apps Backup & Restore shipped on 400M+ Windows 11 devices",
-      "Developed AI Review Summarization for Microsoft Store — summarizing millions of app reviews",
-      "Architected Windows Store Backend (SPARK) for Win32 app catalog integration",
+      "Leading AI initiatives on the XBOX Gaming AI team",
+      "Driving architecture and development of responsible AI and ML-powered gaming features",
+      "Building scalable systems with React, .NET, and machine learning pipelines",
     ],
-    tech: ["C#", ".NET Core", "Azure Cosmos DB", "Azure Functions", "Python", "Distributed Systems"],
+    tech: ["React", ".NET", "AI/ML", "Responsible AI", "Software Design"],
+  },
+  {
+    id: "workday",
+    company: "Workday",
+    role: "Staff Software Engineer (SDE-4)",
+    period: "Feb 2024 — Nov 2025",
+    location: "Vancouver, Canada",
+    description:
+      "Lead engineer on Workday Financials Revenue & Billing, driving architecture and development of scalable services for enterprise clients.",
+    achievements: [
+      "Designed scalable, fault-tolerant services for Revenue & Billing — ensuring reliability for Fortune 500 clients processing billions in financial transactions",
+      "Built distributed cloud-native services with Java, Spring, and MySQL optimized for high availability in multi-tenant SaaS environments",
+      "Delivered enhancements improving billing accuracy, invoicing automation, and revenue recognition — reducing operational costs and improving audit readiness",
+      "Introduced monitoring, alerting, and performance tuning that improved system reliability SLAs and reduced latency across high-volume financial workloads",
+      "Partnered with product managers, architects, and finance domain experts ensuring compliance with GAAP, IFRS, and regulatory standards",
+      "Mentored junior engineers in design, coding best practices, and system design — raising engineering quality and accelerating delivery velocity",
+    ],
+    tech: ["Java", "Spring", "MySQL", "Kubernetes", "Microservices", "SaaS", "Docker", "Distributed Systems"],
+  },
+  {
+    id: "microsoft-3",
+    company: "Microsoft",
+    role: "Senior Software Engineer",
+    period: "Nov 2021 — Jan 2024",
+    location: "Vancouver, Canada",
+    description:
+      "Directed architecture and delivery of mission-critical microservices within the Windows Store & Apps ecosystem, generating $10M+ annual revenue while serving hundreds of millions of Windows devices.",
+    achievements: [
+      "Led end-to-end development of Paint Co-Creator — Microsoft's first DALL-E AI image generation in a consumer product, serving 100M+ monthly active users",
+      "Architected Windows Store Backend (SPARK) to onboard Win32/MSI product catalogs into the Windows 11 Store for the first time",
+      "Designed and launched Project Mercury (App Backup & Restore) — a core Windows 11 feature enabling seamless app restoration across 400M+ devices",
+      "Developed AI Review Summarization for Microsoft Store — summarizing millions of app reviews",
+      "Acted as technical lead across multiple teams — defining system requirements, driving design reviews, and enforcing engineering excellence",
+    ],
+    tech: ["C#", ".NET Core", "Azure Cosmos DB", "Azure Functions", "Service Fabric", "Python", "Distributed Systems"],
   },
   {
     id: "microsoft-2",
     company: "Microsoft",
     role: "Senior Software Engineer",
-    period: "2017 — 2020",
+    period: "Aug 2017 — Oct 2021",
     location: "Hyderabad, India",
     description:
-      "Engineered core backend services for Microsoft Edge Extensions and the Windows Store platform.",
+      "Spearheaded the design and development of mission-critical platforms for the Microsoft Edge Extensions ecosystem and Windows Store services.",
     achievements: [
-      "Built Edge Extensions Publishing Backend from scratch — enabled 10,000+ extensions in 6 months",
-      "Compared to 300 all-time extensions on old Edge browser",
-      "Led developer ingestion workflow via Microsoft Partner Center",
-      "Awarded Microsoft 'Be a Leader' 2021 for demonstrating leadership in Store Services team",
+      "Built Edge Extensions Publishing Backend (BigCat Publishing Service) from scratch — enabled 10,000+ extensions in 6 months vs. 300 all-time on old Edge",
+      "Led developer ingestion workflow enabling extension publishing via Microsoft Partner Center",
+      "Awarded Microsoft 'Be a Leader' 2021 for demonstrating leadership in the Store Services team",
+      "Drove strategic ecosystem growth for Chromium-based Edge browser extensions",
     ],
     tech: ["C#", ".NET", "Azure", "SQL Server", "Microservices", "REST APIs"],
   },
