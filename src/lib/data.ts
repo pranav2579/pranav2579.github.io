@@ -47,7 +47,7 @@ export const experiences: Experience[] = [
       "Driving architecture and development of responsible AI and ML-powered gaming features",
       "Building scalable systems with React, .NET, and machine learning pipelines",
     ],
-    tech: ["React", ".NET", "AI/ML", "Responsible AI", "Software Design"],
+    tech: ["React", ".NET", "AI/ML", "Responsible AI", "Machine Learning"],
   },
   {
     id: "workday",
@@ -93,41 +93,89 @@ export const experiences: Experience[] = [
     description:
       "Spearheaded the design and development of mission-critical platforms for the Microsoft Edge Extensions ecosystem and Windows Store services.",
     achievements: [
-      "Built Edge Extensions Publishing Backend (BigCat Publishing Service) from scratch — enabled 10,000+ extensions in 6 months vs. 300 all-time on old Edge",
-      "Led developer ingestion workflow enabling extension publishing via Microsoft Partner Center",
+      "Built Edge Extensions Publishing Backend (BigCat Publishing Service) from scratch — scaled ecosystem from ~300 extensions to 10,000+ in 6 months (30x growth)",
+      "Led developer ingestion workflow via Microsoft Partner Center for Chromium-based Edge Add-ons Store",
+      "Owned the Autofill platform for Microsoft Edge — delivering autocomplete migration, export/import, inline-delete, and cross-device sync for tens of millions of users",
       "Awarded Microsoft 'Be a Leader' 2021 for demonstrating leadership in the Store Services team",
-      "Drove strategic ecosystem growth for Chromium-based Edge browser extensions",
+      "Enabled ecosystem adoption positioning Microsoft Edge as a competitive browser in the Chromium era",
     ],
     tech: ["C#", ".NET", "Azure", "SQL Server", "Microservices", "REST APIs"],
   },
   {
-    id: "microsoft-1",
-    company: "Microsoft",
+    id: "sears",
+    company: "Sears Holdings India",
     role: "Software Engineer",
-    period: "2014 — 2017",
-    location: "Hyderabad, India",
+    period: "Mar 2016 — Aug 2017",
+    location: "Bengaluru, India",
     description:
-      "Worked on the Windows Store Services team building critical platform infrastructure.",
+      "Led the pricing platform for Sears.com and Kmart.com, powering $1B+ monthly revenue across millions of SKUs.",
     achievements: [
-      "Contributed to core Store services powering app distribution on Windows",
-      "Developed backend systems handling millions of daily transactions",
+      "Led the core pricing service powering $1B+ monthly revenue across Sears.com and Kmart.com",
+      "Designed and optimized Java, Spring, and MySQL-based microservices for price computation and distribution with low-latency performance",
+      "Partnered with product and business teams to align pricing workflows with promotional strategies — improving profit margins and customer trust",
+      "Enabled real-time, high-availability pricing at scale supporting Sears' competitive e-commerce strategy",
     ],
-    tech: ["C#", ".NET", "Azure", "SQL Server"],
+    tech: ["Java", "Spring", "MySQL", "Microservices", "REST APIs"],
+  },
+  {
+    id: "goldman-sachs",
+    company: "Goldman Sachs",
+    role: "Software Engineer",
+    period: "Jan 2015 — Mar 2016",
+    location: "Bengaluru, India",
+    description:
+      "Designed and implemented systems to store, catalog, and govern financial models for GS Asset Management, ensuring compliance and risk transparency.",
+    achievements: [
+      "Built Model Inventory Platform for GS Asset Management — ensuring compliance and risk transparency",
+      "Developed report delivery and database purge framework using Slang, SecDb, React, and microservices",
+      "Collaborated with quants, risk, and compliance teams to deliver regulatory-aligned model governance",
+      "Improved system performance and compliance readiness, strengthening Goldman's risk management infrastructure",
+    ],
+    tech: ["Slang", "SecDb", "React", "Microservices", "Python"],
   },
   {
     id: "oracle",
     company: "Oracle",
     role: "Software Engineer",
-    period: "2012 — 2014",
+    period: "Jun 2012 — Dec 2014",
     location: "Hyderabad, India",
     description:
-      "Worked on Oracle E-Business Suite products — WebADI and Report Manager.",
+      "Delivered enterprise features for Oracle E-Business Suite (Web ADI, Report Manager), deployed to thousands of global enterprise customers.",
     achievements: [
-      "Developed Excel formatting controls for Report Manager with wide customer impact",
+      "Implemented Java/J2EE-based enhancements that streamlined financial reporting workflows for enterprise customers",
       "Delivered Windows 8 certification for WebADI & Report Manager — shipped to thousands of EBS customers",
       "Built Office 2010 64-bit certification for global EBS customer base",
+      "Contributed to Oracle's flagship ERP product line, strengthening adoption among Fortune 500 customers",
     ],
     tech: ["Java", "J2EE", "SQL", "VBA", "Oracle DB"],
+  },
+  {
+    id: "infosys-intern",
+    company: "Infosys",
+    role: "Protégé Summer Intern",
+    period: "May 2011 — Jul 2011",
+    location: "India",
+    description:
+      "Summer intern under Dr. Arijit Laha at Infosys Labs as part of the IIT Protégé Internship Program.",
+    achievements: [
+      "Developed an MS-Word 2010 add-in to support Knowledge Work Support Systems (KWSS)",
+      "Received a pre-placement offer from Infosys for the milestone achieved",
+    ],
+    tech: ["VB.NET", "Word Object Model", "XML", "MySQL"],
+  },
+  {
+    id: "iitb-intern",
+    company: "IIT Bombay",
+    role: "Summer Research Intern",
+    period: "May 2010 — Jun 2010",
+    location: "Mumbai, India",
+    description:
+      "Summer intern under Prof. D. B. Phatak, Dept. of CSE, IIT Bombay on a MHRD-sponsored ICT project.",
+    achievements: [
+      "Built Extensible Educational Animations framework — designing a user layer over Blender using Python",
+      "Worked with open-source Blender animation software, MySQL database, and XML data",
+    ],
+    tech: ["Python", "Blender", "MySQL", "XML"],
   },
 ];
 
