@@ -1,0 +1,74 @@
+---
+title: "Bringing AI to Everyday Products"
+description: "How we integrated DALL-E into Microsoft Paint, reaching 100M+ users — and what it taught me about building AI features people actually use."
+date: "2025-02-10"
+tags: ["ai", "product-engineering", "microsoft", "dall-e"]
+---
+
+# Bringing AI to Everyday Products
+
+There's a gap between what AI can do in a research demo and what it can do in a product used by 100 million people. Bridging that gap was the challenge with **Paint Co-Creator** — integrating DALL-E image generation directly into Microsoft Paint.
+
+## The Promise and the Problem
+
+Generative AI is magical in demos. Type a prompt, get an image. But shipping that to millions of users introduces problems that don't exist in a Jupyter notebook:
+
+- **Latency expectations** — users expect Paint to feel instant, not "wait 15 seconds"
+- **Content safety** — you can't ship a product that generates harmful content
+- **Cost at scale** — every generation costs real money; multiply by 100M users
+- **Discoverability** — most Paint users aren't AI enthusiasts; the feature needs to feel natural
+
+## Architecture for AI at Scale
+
+We built a pipeline that balanced quality, safety, and performance:
+
+```
+User Prompt → Content Filter → DALL-E API → Result Filter → UI
+                  ↓                              ↓
+            Block + Educate              Cache + Optimize
+```
+
+Key architectural decisions:
+
+### Credit-Based Access
+Instead of unlimited generations, we introduced a credit system. This served multiple purposes — cost management, abuse prevention, and setting user expectations about the computational cost of AI.
+
+### Streaming UI
+Rather than showing a spinner for 10+ seconds, we designed the UI to show progressive feedback. The user sees their prompt being processed, then a low-res preview, then the final image. Perceived latency dropped dramatically.
+
+### Safety as a Feature
+Content safety wasn't a filter we bolted on — it was a core product feature. We built a multi-layered approach:
+
+1. **Input filtering** — catch problematic prompts before they hit the model
+2. **Output filtering** — analyze generated images before displaying
+3. **User education** — explain *why* something was blocked, not just *that* it was
+
+## What Users Actually Want
+
+The most surprising insight: users didn't want the most powerful AI features. They wanted simple, fun, and fast. The features that got the most engagement were:
+
+- **"Make it better"** — one-click enhancement of hand-drawn sketches
+- **Style transfer** — "make this look like a watercolor"
+- **Background generation** — "put my drawing in a forest"
+
+The complex prompt-based generation? Used mostly by power users. The simple, one-tap features? Used by everyone.
+
+## Lessons for AI Product Engineers
+
+After shipping AI to 100M+ users, here's what I'd tell any engineer building AI-powered features:
+
+1. **Latency is a feature.** If your AI feature takes more than 3 seconds, you've already lost casual users. Invest heavily in perceived and actual performance.
+
+2. **Safety is not optional.** Build it in from day one. Retrofitting safety into a shipped AI product is exponentially harder.
+
+3. **Design for the 90%, not the 10%.** AI enthusiasts will find and use power features. But the real impact comes from making AI invisible and helpful for everyone else.
+
+4. **Measure what matters.** Generation count is a vanity metric. Measure whether users *keep* the generated content, share it, or build on it.
+
+5. **Embrace constraints.** Credits, rate limits, and content filters aren't limitations — they're design tools that shape a better product.
+
+## Looking Forward
+
+We're at the beginning of AI becoming a standard part of every creative tool. The challenge isn't the AI itself — it's the product engineering around it. How do you make it fast, safe, useful, and delightful?
+
+That's the work I find most exciting: not building AI for AI's sake, but making technology that helps real people create things they couldn't before.

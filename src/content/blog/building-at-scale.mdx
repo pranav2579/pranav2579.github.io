@@ -1,0 +1,65 @@
+---
+title: "Building Systems at 400M+ User Scale"
+description: "Lessons learned from building and shipping products to hundreds of millions of Windows users — from architecture decisions to rollout strategies."
+date: "2025-01-15"
+tags: ["systems-design", "scale", "windows", "engineering"]
+---
+
+# Building Systems at 400M+ User Scale
+
+When you ship software to over 400 million devices, everything changes. The stakes are higher, the edge cases are wilder, and the rollout strategies become their own discipline. After over a decade of building at this scale at Microsoft, here are some of the lessons I've internalized.
+
+## Think in Percentages, Not Absolutes
+
+A "rare" bug that affects 0.01% of users still impacts **40,000 people**. That reframes how you think about error handling, telemetry, and testing. Every code path matters, every null check matters, every timeout matters.
+
+We learned to treat telemetry as a first-class citizen — not an afterthought bolted on before launch, but a core part of the architecture from day one.
+
+## Progressive Rollouts Are Non-Negotiable
+
+At this scale you never flip a switch to 100%. Our approach:
+
+1. **Internal dogfood** — ship to employees first
+2. **1% ring** — a small slice of production traffic
+3. **10% ring** — broader exposure, catch regional issues
+4. **Full rollout** — only after success metrics hold
+
+Each ring has automatic rollback triggers tied to crash rates, latency percentiles, and user-facing error rates. The system must be able to heal itself.
+
+```typescript
+interface RolloutConfig {
+  ring: "dogfood" | "insider" | "broad" | "general";
+  percentage: number;
+  rollbackThresholds: {
+    crashRate: number;
+    p99Latency: number;
+    errorRate: number;
+  };
+}
+```
+
+## Design for Failure
+
+Distributed systems fail. Networks partition, services go down, databases slow to a crawl. The question isn't *if* but *when*. Some patterns we relied on heavily:
+
+- **Circuit breakers** — stop cascading failures before they take down dependent services
+- **Bulkheads** — isolate failure domains so one bad tenant doesn't ruin it for everyone
+- **Graceful degradation** — show cached data instead of an error page
+- **Retry with exponential backoff** — respect the system that's struggling
+
+## The Human Side of Scale
+
+Technical challenges are only half the story. At this scale, you're also dealing with:
+
+- **Diverse hardware** — from brand-new Surface devices to decade-old machines
+- **Network conditions** — from fiber in Seoul to 2G in rural India
+- **Accessibility** — a non-trivial percentage of users rely on screen readers
+- **Localization** — bugs that only manifest in right-to-left languages
+
+Building for 400M+ users taught me empathy as an engineering discipline. You can't just build for the happy path on a MacBook Pro in a San Francisco coffee shop.
+
+## Closing Thoughts
+
+Scale isn't just a technical problem — it's a mindset. It changes how you design APIs, how you write tests, how you monitor production, and how you think about the humans on the other end. Every architectural decision carries weight when millions of people depend on it.
+
+The most important lesson? **Humility.** No matter how good your design is, production will surprise you. Build systems that can absorb those surprises gracefully.
