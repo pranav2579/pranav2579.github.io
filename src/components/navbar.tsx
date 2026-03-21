@@ -59,7 +59,7 @@ export default function Navbar() {
           href="/"
           className="text-xl font-bold text-heading hover:text-emerald-400 transition-colors font-mono"
         >
-          PT<span className="text-emerald-400">.</span>
+          Pranav Tripathi<span className="text-emerald-400">.</span>
         </a>
 
         {/* Desktop nav */}

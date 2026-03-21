@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <span className="text-lg font-bold text-heading font-mono">
-              PT<span className="text-emerald-400">.</span>
+              Pranav Tripathi<span className="text-emerald-400">.</span>
             </span>
             <span className="text-faint text-sm">
               © {new Date().getFullYear()} Pranav Tripathi
