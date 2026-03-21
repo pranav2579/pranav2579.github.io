@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 import { GraduationCap } from "lucide-react";
 import SectionHeading from "./section-heading";
 import { education } from "@/lib/data";
@@ -26,6 +27,19 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
+            {/* Profile photo */}
+            <div className="flex justify-center md:justify-start mb-2">
+              <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-edge shadow-lg shadow-emerald-500/10">
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Pranav Tripathi"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+
             <p className="text-body text-lg leading-relaxed">
               I&apos;m a <span className="text-emerald-400 font-semibold">Staff Software Engineer</span> with
               over 13 years of experience building software systems that reach hundreds of millions of
