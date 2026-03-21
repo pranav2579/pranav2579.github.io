@@ -17,7 +17,7 @@ export default function BlogPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-32 pb-20 bg-zinc-950">
+      <main className="min-h-screen pt-32 pb-20 bg-surface">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
             title="Blog"
@@ -25,32 +25,32 @@ export default function BlogPage() {
           />
 
           {posts.length === 0 ? (
-            <p className="text-center text-zinc-500">No posts yet. Check back soon!</p>
+            <p className="text-center text-faint">No posts yet. Check back soon!</p>
           ) : (
             <div className="grid gap-8 md:grid-cols-2">
               {posts.map((post) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
-                  <article className="h-full rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all duration-300 hover:border-emerald-400/30 hover:shadow-lg hover:shadow-emerald-400/5">
+                  <article className="h-full rounded-2xl border border-edge bg-card p-6 transition-all duration-300 hover:border-emerald-400/30 hover:shadow-lg hover:shadow-emerald-400/5">
                     <div className="mb-4 flex flex-wrap gap-2">
                       {post.frontmatter.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full bg-zinc-800 px-3 py-1 text-xs text-zinc-400"
+                          className="rounded-full bg-tag px-3 py-1 text-xs text-muted"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    <h3 className="mb-2 text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                    <h3 className="mb-2 text-xl font-bold text-heading group-hover:text-emerald-400 transition-colors">
                       {post.frontmatter.title}
                     </h3>
 
-                    <p className="mb-6 text-zinc-400 leading-relaxed">
+                    <p className="mb-6 text-muted leading-relaxed">
                       {post.frontmatter.description}
                     </p>
 
-                    <div className="mt-auto flex items-center justify-between text-sm text-zinc-500">
+                    <div className="mt-auto flex items-center justify-between text-sm text-faint">
                       <div className="flex items-center gap-4">
                         <span className="flex items-center gap-1.5">
                           <Calendar size={14} />
