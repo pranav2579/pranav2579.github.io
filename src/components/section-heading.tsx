@@ -31,6 +31,7 @@ export default function SectionHeading({
         <p className="text-muted max-w-2xl mx-auto text-lg">{subtitle}</p>
       )}
       <div
+        aria-hidden="true"
         className={`mt-4 h-1 w-16 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full ${
           align === "center" ? "mx-auto" : ""
         }`}

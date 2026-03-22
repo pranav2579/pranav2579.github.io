@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useMotionValueEvent, useScroll } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail, FileText } from "lucide-react";
 import Link from "next/link";
 import { siteConfig, stats, heroData } from "@/lib/data";
@@ -51,6 +51,13 @@ function AnimatedCounter({ value }: { value: string }) {
 }
 
 export default function Hero() {
+  const { scrollY } = useScroll();
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 50 && !hasScrolled) setHasScrolled(true);
+  });
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated background gradient */}
@@ -169,20 +176,23 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
+      {!hasScrolled && (
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-edge flex items-start justify-center p-1"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
-          <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-6 h-10 rounded-full border-2 border-edge flex items-start justify-center p-1"
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      )}
     </section>
   );
 }

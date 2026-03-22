@@ -11,6 +11,7 @@ import SectionHeading from "./section-heading";
 import { siteConfig } from "@/lib/data";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const IS_FORM_CONFIGURED = !FORMSPREE_ENDPOINT.includes("YOUR_FORM_ID");
 
 export default function Contact() {
   const ref = useRef(null);
@@ -131,7 +132,7 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {submitted ? (
-              <div className="h-full flex items-center justify-center p-8 rounded-2xl border border-emerald-400/30 bg-emerald-500/5">
+              <div role="status" aria-live="polite" className="h-full flex items-center justify-center p-8 rounded-2xl border border-emerald-400/30 bg-emerald-500/5">
                 <div className="text-center">
                   <div className="text-4xl mb-4">✉️</div>
                   <h3 className="text-heading font-bold text-xl mb-2">
@@ -142,11 +143,24 @@ export default function Contact() {
                   </p>
                 </div>
               </div>
+            ) : !IS_FORM_CONFIGURED ? (
+              <div className="h-full flex items-center justify-center p-8 rounded-2xl border border-amber-400/30 bg-amber-500/5">
+                <div className="text-center">
+                  <div className="text-4xl mb-4">🔧</div>
+                  <h3 className="text-heading font-bold text-xl mb-2">Form Not Configured</h3>
+                  <p className="text-muted text-sm">
+                    Contact form will be activated soon. In the meantime, please reach out via{" "}
+                    <a href={siteConfig.links.email} className="text-emerald-400 hover:underline">email</a>{" "}
+                    or{" "}
+                    <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">LinkedIn</a>.
+                  </p>
+                </div>
+              </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+                <input type="text" name="_gotcha" className="absolute left-[-9999px]" tabIndex={-1} autoComplete="off" aria-hidden="true" />
                 {error && (
-                  <div className="text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+                  <div id="form-error" role="alert" className="text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl p-4">
                     {error}
                   </div>
                 )}
@@ -210,6 +224,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
+                  aria-describedby={error ? "form-error" : undefined}
                   className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-emerald-500 hover:bg-emerald-400 disabled:bg-emerald-500/50 text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-emerald-500/25"
                 >
                   {isSubmitting ? (

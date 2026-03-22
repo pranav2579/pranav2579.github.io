@@ -5,7 +5,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { Globe, GraduationCap, Heart, Linkedin } from "lucide-react";
 import SectionHeading from "./section-heading";
-import { education, volunteerExperience, siteConfig, languages } from "@/lib/data";
+import { education, volunteerExperience, siteConfig, languages, quickFacts } from "@/lib/data";
 
 export default function About() {
   const ref = useRef(null);
@@ -109,13 +109,7 @@ export default function About() {
             <div className="p-6 rounded-2xl border border-edge bg-card">
               <h3 className="text-heading font-semibold text-lg mb-4">Quick Facts</h3>
               <div className="space-y-3">
-                {[
-                  { label: "Current Focus", value: "AI-Powered Gaming at XBOX" },
-                  { label: "Companies", value: "Microsoft → Workday → Oracle" },
-                  { label: "Speciality", value: "AI Products & Distributed Systems" },
-                  { label: "Scale", value: "400M+ users, 100M+ MAU" },
-                  { label: "Location", value: "Vancouver, Canada 🇨🇦" },
-                ].map((fact) => (
+                {quickFacts.map((fact) => (
                   <div key={fact.label} className="flex justify-between items-center">
                     <span className="text-faint text-sm">{fact.label}</span>
                     <span className="text-body text-sm font-medium">{fact.value}</span>

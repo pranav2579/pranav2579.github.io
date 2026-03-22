@@ -21,7 +21,7 @@ export default function Testimonials() {
         <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
-              key={index}
+              key={testimonial.id}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
