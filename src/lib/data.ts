@@ -21,6 +21,7 @@ export const siteConfig = {
     email: "mailto:pranav2579@gmail.com",
     twitter: "https://twitter.com/pranav2579",
     medium: "https://pranav2579.medium.com",
+    calendly: "https://calendly.com/pranav2579/30min",
     youtube: "https://www.youtube.com/channel/UC6et41KnTGyocDtbjeOQ8pw",
   },
 };
@@ -151,20 +152,6 @@ export const experiences: Experience[] = [
       "Contributed to Oracle's flagship ERP product line, strengthening adoption among Fortune 500 customers",
     ],
     tech: ["Java", "J2EE", "SQL", "VBA", "Oracle DB"],
-  },
-  {
-    id: "infosys-intern",
-    company: "Infosys",
-    role: "Protégé Summer Intern",
-    period: "May 2011 — Jul 2011",
-    location: "India",
-    description:
-      "Summer intern under Dr. Arijit Laha at Infosys Labs as part of the IIT Protégé Internship Program.",
-    achievements: [
-      "Developed an MS-Word 2010 add-in to support Knowledge Work Support Systems (KWSS)",
-      "Received a pre-placement offer from Infosys for the milestone achieved",
-    ],
-    tech: ["VB.NET", "Word Object Model", "XML", "MySQL"],
   },
   {
     id: "iitb-intern",

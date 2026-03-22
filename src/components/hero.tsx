@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useInView, useMotionValueEvent, useScroll } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, FileText, Twitter, PenLine, Youtube } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, FileText, Twitter, PenLine, Youtube, Calendar } from "lucide-react";
 import Link from "next/link";
 import { siteConfig, stats, heroData } from "@/lib/data";
 
@@ -126,6 +126,15 @@ export default function Hero() {
               className="flex items-center gap-2 px-8 py-4 border border-edge hover:border-muted text-body hover:text-heading rounded-full transition-all"
             >
               Get in Touch
+            </a>
+            <a
+              href={siteConfig.links.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-8 py-4 border border-edge/50 hover:border-emerald-400/50 text-faint hover:text-emerald-400 rounded-full transition-all"
+            >
+              <Calendar size={18} />
+              Book a 1:1
             </a>
             <Link
               href="/resume"

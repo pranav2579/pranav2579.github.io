@@ -6,7 +6,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, Mail, MapPin, Linkedin, Github } from "lucide-react";
+import { Send, Mail, MapPin, Linkedin, Github, Calendar } from "lucide-react";
 import SectionHeading from "./section-heading";
 import { siteConfig } from "@/lib/data";
 
@@ -75,12 +75,22 @@ export default function Contact() {
               or just having a conversation about technology and engineering at scale.
             </p>
 
+            <a
+              href={siteConfig.links.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-emerald-500/25"
+            >
+              <Calendar size={18} />
+              Book a 1:1
+            </a>
+
             <div className="space-y-4">
               {[
                 {
                   icon: Mail,
                   label: "Email",
-                  value: "hello@pranavtripathi.dev",
+                  value: "pranav2579@gmail.com",
                   href: siteConfig.links.email,
                 },
                 {

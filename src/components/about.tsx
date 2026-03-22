@@ -3,9 +3,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import { Globe, GraduationCap, Heart, Linkedin, Sparkles, ExternalLink } from "lucide-react";
+import { Globe, GraduationCap, Heart, Linkedin, Sparkles, ExternalLink, Award } from "lucide-react";
 import SectionHeading from "./section-heading";
-import { education, volunteerExperience, siteConfig, languages, quickFacts, beyondCode } from "@/lib/data";
+import { education, volunteerExperience, siteConfig, languages, quickFacts, beyondCode, certifications } from "@/lib/data";
 
 export default function About() {
   const ref = useRef(null);
@@ -147,6 +147,27 @@ export default function About() {
                   <div key={lang.name} className="flex justify-between items-center">
                     <span className="text-faint text-sm">{lang.name}</span>
                     <span className="text-body text-sm font-medium">{lang.level}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Certifications card */}
+            <div className="p-6 rounded-2xl border border-edge bg-card">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-lg bg-accent-subtle">
+                  <Award className="text-emerald-400" size={24} />
+                </div>
+                <h3 className="text-heading font-semibold text-lg">Certifications</h3>
+              </div>
+              <div className="space-y-4">
+                {certifications.map((cert) => (
+                  <div key={cert.name}>
+                    <p className="text-heading text-sm font-medium">{cert.name}</p>
+                    <p className="text-emerald-400 text-xs mt-0.5">{cert.issuer} · {cert.year}</p>
+                    {cert.details && (
+                      <p className="text-faint text-xs mt-0.5">{cert.details}</p>
+                    )}
                   </div>
                 ))}
               </div>
