@@ -95,7 +95,7 @@ export default function Experience() {
 
                 {/* Content card */}
                 <div
-                  className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${
+                  className={`ml-12 md:ml-0 md:w-[calc(50%-2rem)] ${
                     index % 2 === 0 ? "md:pr-8" : "md:pl-8"
                   }`}
                 >

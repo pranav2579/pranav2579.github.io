@@ -89,7 +89,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-edge bg-card text-sm text-muted mb-8"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 motion-reduce:hidden" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
             {heroData.statusMessage}
@@ -129,7 +129,7 @@ export default function Hero() {
             </a>
             <Link
               href="/resume"
-              className="flex items-center gap-2 px-8 py-4 border border-edge/50 hover:border-emerald-400/50 text-faint hover:text-emerald-400 rounded-full transition-all"
+              className="hidden sm:flex items-center gap-2 px-8 py-4 border border-edge/50 hover:border-emerald-400/50 text-faint hover:text-emerald-400 rounded-full transition-all"
             >
               <FileText size={18} />
               View Resume

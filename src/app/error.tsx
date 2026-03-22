@@ -8,7 +8,11 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
       <div className="text-center max-w-md">
         <div className="text-6xl mb-6">⚠️</div>
         <h1 className="text-3xl font-bold text-heading mb-4">Something went wrong</h1>
-        <p className="text-muted mb-8">{error.message || "An unexpected error occurred. Please try again."}</p>
+        <p className="text-muted mb-8">
+          {process.env.NODE_ENV === "development"
+            ? error.message
+            : "An unexpected error occurred. Please try again."}
+        </p>
         <div className="flex items-center justify-center gap-4">
           <button
             onClick={reset}

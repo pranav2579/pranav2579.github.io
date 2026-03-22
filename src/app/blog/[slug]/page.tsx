@@ -101,7 +101,7 @@ export default async function BlogPostPage({
     <>
       <ReadingProgress />
       <Navbar />
-      <main className="min-h-screen pt-32 pb-20 bg-surface">
+      <main id="main-content" className="min-h-screen pt-32 pb-20 bg-surface">
         <div className="mx-auto max-w-6xl px-6">
           <div className="xl:grid xl:grid-cols-[1fr_220px] xl:gap-10">
             <article className="mx-auto max-w-3xl xl:mx-0 xl:max-w-none">
@@ -155,9 +155,6 @@ export default async function BlogPostPage({
               </header>
 
               <ShareButtons title={post.frontmatter.title} slug={slug} />
-
-              {/* Mobile TOC */}
-              <TableOfContents headings={headings} />
 
               <div className="prose prose-zinc dark:prose-invert max-w-none prose-headings:text-heading prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-body prose-p:leading-relaxed prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-heading prose-code:text-emerald-400 prose-code:bg-tag prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none prose-pre:bg-card prose-pre:border prose-pre:border-edge prose-pre:rounded-xl prose-blockquote:border-emerald-400 prose-blockquote:text-muted prose-li:text-body prose-ol:text-body prose-ul:text-body">
                 <MDXRemote

@@ -11,8 +11,8 @@
   --tag-border: #d4d4d8;
   --heading: #09090b;
   --body: #3f3f46;
-  --muted: #71717a;
-  --faint: #a1a1aa;
+  --muted: #52525b;
+  --faint: #6b7280;
   --edge: #e4e4e7;
   --edge-subtle: rgba(228, 228, 231, 0.5);
   --input-bg: #f4f4f5;
@@ -96,8 +96,14 @@
   --font-mono: var(--font-geist-mono);
 }
 
-* {
+html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -158,6 +164,11 @@ pre:hover .copy-code-btn {
   opacity: 1;
 }
 
+pre:focus-within .copy-code-btn,
+.copy-code-btn:focus {
+  opacity: 1;
+}
+
 .copy-code-btn:hover {
   background: var(--accent-subtle-bg, rgba(16, 185, 129, 0.1));
   color: #10b981;
@@ -169,4 +180,22 @@ pre:hover .copy-code-btn {
   color: #10b981;
   border-color: rgba(16, 185, 129, 0.4);
   opacity: 1;
+}
+
+/* Visible focus rings for keyboard navigation (WCAG 2.1 AA) */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove default outline since we're providing our own */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
 }

@@ -39,6 +39,7 @@ export default function Contact() {
           email: formState.email,
           message: formState.message,
           _subject: `Portfolio Contact from ${formState.name}`,
+          _gotcha: "",
         }),
       });
 

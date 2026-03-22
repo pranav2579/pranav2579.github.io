@@ -42,7 +42,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -79,6 +79,15 @@ export default function Navbar() {
     };
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
   }, [isMobileMenuOpen]);
 
   const isActive = (href: string) => {
@@ -118,6 +127,7 @@ export default function Navbar() {
                   ? "text-emerald-400"
                   : "text-muted hover:text-emerald-400"
               )}
+              aria-current={isActive(link.href) ? "page" : undefined}
             >
               {link.label}
               {isActive(link.href) && (
@@ -143,6 +153,7 @@ export default function Navbar() {
           className="md:hidden p-2 text-muted hover:text-heading transition-colors"
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -152,6 +163,9 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}

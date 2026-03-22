@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pranavtripathi.dev"),
-  title: "Pranav Tripathi — Staff Software Engineer",
+  title: "Pranav Tripathi — Senior Software Engineer Technical Lead",
   description:
-    "Staff Software Engineer with 13+ years of experience building products used by 400M+ people. IIT BHU alumnus. Ex-Microsoft.",
+    "Senior Software Engineer Technical Lead with 13+ years of experience building products used by 400M+ people. IIT BHU alumnus. Microsoft.",
   keywords: [
     "Pranav Tripathi",
-    "Staff Software Engineer",
+    "Senior Software Engineer Technical Lead",
     "Microsoft",
     "IIT BHU",
     "Portfolio",
@@ -39,24 +39,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://pranavtripathi.dev",
-    title: "Pranav Tripathi — Staff Software Engineer",
+    title: "Pranav Tripathi — Senior Software Engineer Technical Lead",
     description:
-      "Staff Software Engineer with 13+ years of experience building products used by 400M+ people.",
+      "Senior Software Engineer Technical Lead with 13+ years of experience building products used by 400M+ people. IIT BHU alumnus. Microsoft.",
     siteName: "Pranav Tripathi",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Pranav Tripathi — Staff Software Engineer",
+        alt: "Pranav Tripathi — Senior Software Engineer Technical Lead",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pranav Tripathi — Staff Software Engineer",
+    title: "Pranav Tripathi — Senior Software Engineer Technical Lead",
     description:
-      "Staff Software Engineer with 13+ years of experience building products used by 400M+ people.",
+      "Senior Software Engineer Technical Lead with 13+ years of experience building products used by 400M+ people. IIT BHU alumnus. Microsoft.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -90,12 +90,19 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Pranav Tripathi",
-              jobTitle: "Staff Software Engineer",
+              jobTitle: "Senior Software Engineer Technical Lead",
               url: "https://pranavtripathi.dev",
+              image: "https://pranavtripathi.dev/og-image.png",
+              description:
+                "Senior Software Engineer Technical Lead with 13+ years of experience building products used by 400M+ people.",
               sameAs: [
-                "https://linkedin.com/in/pranavtripathi",
-                "https://github.com/pranavtripathi",
+                "https://linkedin.com/in/pranav2579",
+                "https://github.com/pranav2579",
               ],
+              worksFor: {
+                "@type": "Organization",
+                name: "Microsoft",
+              },
               alumniOf: {
                 "@type": "CollegeOrUniversity",
                 name: "IIT BHU",
@@ -110,6 +117,12 @@ export default function RootLayout({
             }),
           }}
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-emerald-500 focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
+        >
+          Skip to main content
+        </a>
         <MotionProvider>
           {children}
           <BackToTop />

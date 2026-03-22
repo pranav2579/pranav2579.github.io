@@ -14,11 +14,22 @@ export const metadata: Metadata = {
   title: "Resume — Pranav Tripathi",
   description:
     "Professional resume of Pranav Tripathi — Senior Software Engineer Technical Lead with 13+ years of experience building products used by 400M+ people.",
+  alternates: {
+    canonical: `${siteConfig.url}/resume`,
+  },
   openGraph: {
     title: "Resume — Pranav Tripathi",
     description:
       "Senior Software Engineer Technical Lead with 13+ years of experience.",
     url: `${siteConfig.url}/resume`,
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Resume — Pranav Tripathi" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Resume — Pranav Tripathi",
+    description:
+      "Senior Software Engineer Technical Lead with 13+ years of experience.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -46,7 +57,7 @@ export default function ResumePage() {
         }}
       />
 
-      <main className="max-w-4xl mx-auto px-6 py-16 bg-surface min-h-screen print:bg-white print:py-4 print:px-0 print:min-h-0 print:text-black">
+      <main id="main-content" className="max-w-4xl mx-auto px-6 py-16 bg-surface min-h-screen print:bg-white print:py-4 print:px-0 print:min-h-0 print:text-black">
         {/* Top bar — hidden in print */}
         <div className="flex items-center justify-between mb-10 no-print">
           <Link

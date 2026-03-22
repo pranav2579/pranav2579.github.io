@@ -15,14 +15,16 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   const shareTwitter = () => {
     window.open(
       `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
-      "_blank"
+      "_blank",
+      "noopener,noreferrer"
     );
   };
 
   const shareLinkedIn = () => {
     window.open(
       `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
-      "_blank"
+      "_blank",
+      "noopener,noreferrer"
     );
   };
 

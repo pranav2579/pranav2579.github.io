@@ -4,20 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import type { BlogPost } from "@/lib/mdx";
 
-interface BlogPost {
-  slug: string;
-  frontmatter: {
-    title: string;
-    description: string;
-    date: string;
-    tags: string[];
-  };
-  readingTime: string;
-}
+type BlogListPost = Omit<BlogPost, "content">;
 
 interface BlogListProps {
-  posts: BlogPost[];
+  posts: BlogListPost[];
 }
 
 export default function BlogList({ posts }: BlogListProps) {

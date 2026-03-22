@@ -45,7 +45,8 @@ export default function TableOfContents({
   function handleClick(id: string) {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth" });
       setIsOpen(false);
     }
   }

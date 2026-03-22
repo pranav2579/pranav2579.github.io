@@ -32,7 +32,7 @@ export default function BlogPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen pt-32 pb-20 bg-surface">
+      <main id="main-content" className="min-h-screen pt-32 pb-20 bg-surface">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
             title="Blog"
