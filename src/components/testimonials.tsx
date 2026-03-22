@@ -18,7 +18,7 @@ export default function Testimonials() {
           subtitle="Testimonials from colleagues and collaborators"
         />
 
-        <div ref={ref} className="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
