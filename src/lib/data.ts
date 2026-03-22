@@ -419,3 +419,23 @@ export const stats = [
   { label: "Products Shipped", value: "10+" },
   { label: "At Scale Since", value: "2012" },
 ];
+
+export const certifications = [
+  {
+    name: "IELTS Academic — 8.5/9.0 (CLB 9)",
+    issuer: "British Council",
+    year: "2022",
+    details: "L: 9.0 · R: 9.0 · W: 7.5 · S: 7.5",
+  },
+  {
+    name: "BITSAT — Score 345",
+    issuer: "BITS Pilani",
+    year: "2008",
+    details: "Received B.Tech CS invitation from BITS Pilani",
+  },
+];
+
+export const languages = [
+  { name: "English", level: "Professional (IELTS 8.5)" },
+  { name: "Hindi", level: "Native" },
+];

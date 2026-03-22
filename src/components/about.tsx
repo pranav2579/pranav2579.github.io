@@ -3,9 +3,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import { GraduationCap, Heart, Linkedin } from "lucide-react";
+import { Globe, GraduationCap, Heart, Linkedin } from "lucide-react";
 import SectionHeading from "./section-heading";
-import { education, volunteerExperience, siteConfig } from "@/lib/data";
+import { education, volunteerExperience, siteConfig, languages } from "@/lib/data";
 
 export default function About() {
   const ref = useRef(null);
@@ -137,6 +137,24 @@ export default function About() {
                 <p className="text-emerald-400 text-sm mt-1">{volunteerExperience.organization}</p>
                 <p className="text-faint text-sm mt-1">{volunteerExperience.period} · {volunteerExperience.location}</p>
                 <p className="text-muted text-sm mt-3">{volunteerExperience.description}</p>
+              </div>
+            </div>
+
+            {/* Languages card */}
+            <div className="p-6 rounded-2xl border border-edge bg-card">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-lg bg-accent-subtle">
+                  <Globe className="text-emerald-400" size={24} />
+                </div>
+                <h3 className="text-heading font-semibold text-lg">Languages</h3>
+              </div>
+              <div className="space-y-3">
+                {languages.map((lang) => (
+                  <div key={lang.name} className="flex justify-between items-center">
+                    <span className="text-faint text-sm">{lang.name}</span>
+                    <span className="text-body text-sm font-medium">{lang.level}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>

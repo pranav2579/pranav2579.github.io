@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail, Heart, Rss } from "lucide-react";
 import { siteConfig } from "@/lib/data";
-import BackToTop from "./back-to-top";
 
 export default function Footer() {
   return (
@@ -68,7 +67,6 @@ export default function Footer() {
                 <Icon size={18} />
               </a>
             ))}
-            <BackToTop />
           </div>
         </div>
       </div>

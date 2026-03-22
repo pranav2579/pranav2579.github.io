@@ -7,9 +7,11 @@ import rehypeSlug from "rehype-slug";
 import rehypeHighlight from "rehype-highlight";
 import { getAllPosts, getPostBySlug } from "@/lib/mdx";
 import Navbar from "@/components/navbar";
+import CopyCodeButtons from "@/components/copy-code-button";
 import Footer from "@/components/footer";
 import ReadingProgress from "@/components/reading-progress";
 import TableOfContents from "@/components/table-of-contents";
+import ShareButtons from "@/components/share-buttons";
 import { extractHeadings } from "@/lib/utils";
 
 export function generateStaticParams() {
@@ -133,6 +135,8 @@ export default async function BlogPostPage({
                 <div className="mt-6 h-px bg-edge" />
               </header>
 
+              <ShareButtons title={post.frontmatter.title} slug={slug} />
+
               {/* Mobile TOC */}
               <TableOfContents headings={headings} />
 
@@ -149,8 +153,14 @@ export default async function BlogPostPage({
               </div>
             </article>
 
+            <CopyCodeButtons />
+
             {/* Desktop TOC sidebar */}
             <TableOfContents headings={headings} />
+          </div>
+
+          <div className="mt-12 mx-auto max-w-3xl xl:max-w-none">
+            <ShareButtons title={post.frontmatter.title} slug={slug} />
           </div>
 
           {/* Related Posts */}
