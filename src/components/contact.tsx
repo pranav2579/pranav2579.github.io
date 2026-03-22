@@ -87,7 +87,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col justify-center p-8 rounded-2xl border border-border bg-card-bg space-y-6"
+            className="flex flex-col justify-center p-8 rounded-2xl border border-edge bg-card space-y-6"
           >
             <div className="text-center space-y-3">
               <MessageSquare className="mx-auto text-emerald-400" size={40} />
@@ -111,7 +111,7 @@ export default function Contact() {
               </a>
               <a
                 href={siteConfig.links.email}
-                className="w-full flex items-center justify-center gap-2 px-6 py-4 border border-border hover:border-emerald-400/50 text-heading font-medium rounded-xl transition-all hover:bg-accent-subtle"
+                className="w-full flex items-center justify-center gap-2 px-6 py-4 border border-edge hover:border-emerald-400/50 text-heading font-medium rounded-xl transition-all hover:bg-accent-subtle"
               >
                 <Mail size={18} />
                 Send an Email
@@ -120,7 +120,7 @@ export default function Contact() {
                 href={siteConfig.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 px-6 py-4 border border-border hover:border-emerald-400/50 text-heading font-medium rounded-xl transition-all hover:bg-accent-subtle"
+                className="w-full flex items-center justify-center gap-2 px-6 py-4 border border-edge hover:border-emerald-400/50 text-heading font-medium rounded-xl transition-all hover:bg-accent-subtle"
               >
                 <Linkedin size={18} />
                 Connect on LinkedIn

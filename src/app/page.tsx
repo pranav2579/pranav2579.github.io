@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import About from "@/components/about";
-import MidPageCta from "@/components/mid-page-cta";
 import Skills from "@/components/skills";
 import Achievements from "@/components/achievements";
 import Testimonials from "@/components/testimonials";
@@ -21,7 +20,6 @@ export default function Home() {
         <About />
         <Experience />
         <Projects />
-        <MidPageCta />
         <Skills />
         <Achievements />
         <Testimonials />
