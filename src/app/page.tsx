@@ -12,6 +12,9 @@ const Skills = dynamic(() => import("@/components/skills"), { ssr: true });
 const Achievements = dynamic(() => import("@/components/achievements"), {
   ssr: true,
 });
+const Testimonials = dynamic(() => import("@/components/testimonials"), {
+  ssr: true,
+});
 const Contact = dynamic(() => import("@/components/contact"), { ssr: true });
 
 export default function Home() {
@@ -25,6 +28,7 @@ export default function Home() {
         <Projects />
         <Skills />
         <Achievements />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />

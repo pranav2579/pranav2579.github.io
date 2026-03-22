@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const sectionIds = ["about", "experience", "projects", "skills", "achievements", "contact"];
+
 const navLinks = [
   { href: "/#about", label: "About" },
   { href: "/#experience", label: "Experience" },
@@ -19,15 +21,21 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
-    if (stored === "light") {
-      setIsDark(false);
-    } else if (stored === "dark") {
-      setIsDark(true);
-    } else {
-      setIsDark(window.matchMedia("(prefers-color-scheme: dark)").matches);
+    const prefersDark =
+      stored === "dark" ||
+      (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    const prefersLight = stored === "light";
+    if (prefersLight) {
+      // Only update if different from default (true)
+      requestAnimationFrame(() => setIsDark(false));
+    } else if (!prefersDark && !prefersLight) {
+      requestAnimationFrame(() =>
+        setIsDark(window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
     }
   }, []);
 
@@ -38,9 +46,34 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
+    );
+
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    for (const el of elements) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);
     localStorage.setItem("theme", isDark ? "dark" : "light");
   }, [isDark]);
+
+  const isActive = (href: string) => {
+    const hash = href.split("#")[1];
+    return hash ? activeSection === hash : false;
+  };
 
   return (
     <motion.header
@@ -55,12 +88,12 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-        <a
-          href="/"
+        <button
+          onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); window.history.pushState({}, "", "/"); }}
           className="text-xl font-bold text-heading hover:text-emerald-400 transition-colors font-mono"
         >
           Pranav Tripathi<span className="text-emerald-400">.</span>
-        </a>
+        </button>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
@@ -68,9 +101,20 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted hover:text-emerald-400 transition-colors"
+              className={cn(
+                "text-sm transition-colors relative pb-1",
+                isActive(link.href)
+                  ? "text-emerald-400"
+                  : "text-muted hover:text-emerald-400"
+              )}
             >
               {link.label}
+              {isActive(link.href) && (
+                <motion.span
+                  layoutId="navbar-underline"
+                  className="absolute left-0 right-0 -bottom-0.5 h-0.5 bg-emerald-400 rounded-full"
+                />
+              )}
             </a>
           ))}
           <button
@@ -107,7 +151,12 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-muted hover:text-emerald-400 transition-colors py-2"
+                  className={cn(
+                    "transition-colors py-2 pl-3 border-l-2",
+                    isActive(link.href)
+                      ? "text-emerald-400 border-emerald-400 bg-emerald-400/10"
+                      : "text-muted hover:text-emerald-400 border-transparent"
+                  )}
                 >
                   {link.label}
                 </a>

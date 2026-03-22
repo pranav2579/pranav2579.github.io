@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pranavtripathi.dev"),
   title: "Pranav Tripathi — Staff Software Engineer",
   description:
     "Staff Software Engineer with 13+ years of experience building products used by 400M+ people. IIT BHU alumnus. Ex-Microsoft.",
@@ -26,6 +27,12 @@ export const metadata: Metadata = {
     "Canada",
   ],
   authors: [{ name: "Pranav Tripathi" }],
+  alternates: {
+    canonical: "https://pranavtripathi.dev",
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -34,12 +41,21 @@ export const metadata: Metadata = {
     description:
       "Staff Software Engineer with 13+ years of experience building products used by 400M+ people.",
     siteName: "Pranav Tripathi",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Pranav Tripathi — Staff Software Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Pranav Tripathi — Staff Software Engineer",
     description:
       "Staff Software Engineer with 13+ years of experience building products used by 400M+ people.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

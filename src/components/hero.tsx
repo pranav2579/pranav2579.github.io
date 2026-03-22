@@ -1,8 +1,54 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
-import { siteConfig, stats } from "@/lib/data";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { motion, useInView } from "framer-motion";
+import { ArrowDown, Github, Linkedin, Mail, FileText } from "lucide-react";
+import Link from "next/link";
+import { siteConfig, stats, heroData } from "@/lib/data";
+
+function AnimatedCounter({ value }: { value: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true });
+  const [display, setDisplay] = useState(value);
+
+  const animate = useCallback(() => {
+    // Parse numeric portion and suffix from strings like "13+", "400M+", "2012"
+    const match = value.match(/^(\d+)(.*)/);
+    if (!match) return;
+
+    const target = parseInt(match[1], 10);
+    const suffix = match[2]; // e.g. "+", "M+", ""
+    // For large numbers like 2012, start near the target for a nicer effect
+    const start = target > 100 ? target - Math.min(20, Math.floor(target * 0.01)) : 0;
+    const duration = 2000;
+    const startTime = performance.now();
+
+    function step(now: number) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(start + (target - start) * eased);
+
+      if (progress < 1) {
+        setDisplay(`${current}${suffix}`);
+        requestAnimationFrame(step);
+      } else {
+        setDisplay(value);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }, [value]);
+
+  useEffect(() => {
+    if (isInView) {
+      animate();
+    }
+  }, [isInView, animate]);
+
+  return <span ref={ref}>{display}</span>;
+}
 
 export default function Hero() {
   return (
@@ -28,7 +74,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Greeting badge */}
+          {/* Status badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -39,7 +85,7 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
-            Open to interesting opportunities
+            {heroData.statusMessage}
           </motion.div>
 
           {/* Name */}
@@ -52,15 +98,11 @@ export default function Hero() {
 
           {/* Tagline */}
           <p className="text-xl sm:text-2xl text-muted max-w-3xl mx-auto mb-4 leading-relaxed">
-            Staff Software Engineer building products
-            <br className="hidden sm:block" /> used by{" "}
-            <span className="text-emerald-400 font-semibold">400M+ people</span>
+            {heroData.tagline}
           </p>
 
           <p className="text-base text-faint max-w-2xl mx-auto mb-12">
-            13+ years of experience architecting scalable systems at Microsoft &amp; Oracle.
-            <br className="hidden sm:block" />
-            IIT BHU alumnus. Currently in Canada 🇨🇦
+            {heroData.subtitle}
           </p>
 
           {/* CTA Buttons */}
@@ -78,6 +120,13 @@ export default function Hero() {
             >
               Get in Touch
             </a>
+            <Link
+              href="/resume"
+              className="flex items-center gap-2 px-8 py-4 border border-edge/50 hover:border-emerald-400/50 text-faint hover:text-emerald-400 rounded-full transition-all"
+            >
+              <FileText size={18} />
+              View Resume
+            </Link>
           </div>
 
           {/* Social links */}
@@ -110,7 +159,9 @@ export default function Hero() {
         >
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-3xl font-bold text-heading mb-1">{stat.value}</div>
+              <div className="text-3xl font-bold text-heading mb-1">
+                <AnimatedCounter value={stat.value} />
+              </div>
               <div className="text-sm text-faint">{stat.label}</div>
             </div>
           ))}

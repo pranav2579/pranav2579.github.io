@@ -11,9 +11,9 @@ import {
 
 export const siteConfig = {
   name: "Pranav Tripathi",
-  title: "Pranav Tripathi — Staff Software Engineer",
+  title: "Pranav Tripathi — Senior Software Engineer Technical Lead",
   description:
-    "Senior Software Engineer Technical Lead with 13+ years of experience building products used by 400M+ people. IIT BHU alumnus. Microsoft, Ex-Workday.",
+    "Senior Software Engineer Technical Lead with 13+ years of experience engineering AI products at 400M+ user scale. XBOX Gaming AI @ Microsoft. IIT BHU alumnus.",
   url: "https://pranavtripathi.dev",
   links: {
     github: "https://github.com/pranav2579",
@@ -187,6 +187,7 @@ export interface Project {
   impact: string;
   tech: string[];
   featured: boolean;
+  link?: string;
 }
 
 export const projects: Project[] = [
@@ -200,6 +201,7 @@ export const projects: Project[] = [
     impact: "100M+ monthly users",
     tech: ["C#", ".NET Core", "Azure Cosmos DB", "DALL-E", "Azure Functions"],
     featured: true,
+    link: "https://www.microsoft.com/en-us/windows/paint",
   },
   {
     id: "windows-backup-restore",
@@ -211,6 +213,7 @@ export const projects: Project[] = [
     impact: "400M+ devices",
     tech: ["C#", ".NET Core", "Azure", "Windows Platform"],
     featured: true,
+    link: "https://support.microsoft.com/en-us/windows/back-up-your-windows-pc-87a81f44-c736-4542-b84e-7011b2523df3",
   },
   {
     id: "store-ai-review",
@@ -222,6 +225,7 @@ export const projects: Project[] = [
     impact: "Millions of reviews processed",
     tech: ["C#", "Azure AI", "NLP", "Azure Cosmos DB"],
     featured: true,
+    link: "https://apps.microsoft.com",
   },
   {
     id: "windows-store-spark",
@@ -233,6 +237,7 @@ export const projects: Project[] = [
     impact: "Powering Windows 11 Store",
     tech: ["C#", ".NET Core", "Azure", "Microservices", "SQL Server"],
     featured: true,
+    link: "https://apps.microsoft.com",
   },
   {
     id: "edge-extensions",
@@ -244,6 +249,7 @@ export const projects: Project[] = [
     impact: "10,000+ extensions in 6 months",
     tech: ["C#", ".NET", "Azure", "REST APIs", "Partner Center"],
     featured: true,
+    link: "https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home",
   },
 ];
 
@@ -347,13 +353,57 @@ export const achievements: Achievement[] = [
       "Ranked in the top 1% of 350,000+ students in India's most prestigious engineering entrance exam.",
   },
   {
-    title: "IELTS — 8.5 / 9.0 (CLB 9)",
-    organization: "British Council",
-    year: "2022",
+    title: "4th Place — National RAD Competition",
+    organization: "Ribbit (British Telecom) at Codefest, IIT BHU",
+    year: "2010",
     description:
-      "Listening 9.0, Reading 9.0, Writing 7.5, Speaking 7.5 — Overall 8.5.",
+      "Secured 4th position in a national-level Rapid Application Development contest organized by Ribbit, a wing of British Telecom at Codefest-2010, IIT BHU.",
   },
 ];
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+}
+
+// NOTE: Replace these placeholder testimonials with real quotes from colleagues
+export const testimonials: Testimonial[] = [
+  {
+    quote: "Pranav combines deep technical expertise with exceptional leadership — he can architect systems at massive scale while mentoring the team through complex challenges.",
+    name: "— Former Manager",
+    role: "Engineering Manager",
+    company: "Microsoft",
+  },
+  {
+    quote: "One of the most impactful engineers I've worked with. His work on Paint Co-Creator and the Store backend set the standard for how we build AI-powered products.",
+    name: "— Former Colleague",
+    role: "Senior Software Engineer",
+    company: "Microsoft",
+  },
+  {
+    quote: "Pranav's ability to design scalable systems for billions in financial transactions while maintaining quality and mentoring the team was remarkable.",
+    name: "— Former Colleague",
+    role: "Staff Engineer",
+    company: "Workday",
+  },
+];
+
+export const volunteerExperience = {
+  organization: "Maaillu Prajaaadharana Ashramam",
+  role: "Volunteer",
+  period: "Sep 2012",
+  location: "Warangal, India",
+  description:
+    "Organized a full-day activity providing essential stationery, books, and vocational training to children at a non-profit organization supporting vulnerable children with education, food, healthcare, and shelter.",
+};
+
+export const heroData = {
+  tagline: "Engineering AI Products at 400M+ User Scale",
+  subtitle: "Senior Software Engineer Technical Lead · Microsoft · IIT BHU Alumnus",
+  statusMessage: "Currently building AI-powered gaming experiences at XBOX",
+};
 
 export const education = {
   degree: "B.Tech in Computer Science & Engineering",

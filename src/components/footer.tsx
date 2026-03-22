@@ -1,5 +1,7 @@
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import Link from "next/link";
+import { Github, Linkedin, Mail, Heart, Rss } from "lucide-react";
 import { siteConfig } from "@/lib/data";
+import BackToTop from "./back-to-top";
 
 export default function Footer() {
   return (
@@ -16,13 +18,30 @@ export default function Footer() {
             </span>
           </div>
 
-          {/* Built with */}
-          <p className="text-faint text-sm flex items-center gap-1">
-            Built with Next.js, Tailwind &amp;{" "}
-            <Heart size={14} className="text-red-400 fill-red-400" />
-          </p>
+          {/* Built with + utility links */}
+          <div className="flex flex-col items-center gap-1">
+            <p className="text-faint text-sm flex items-center gap-1">
+              Built with Next.js, Tailwind &amp;{" "}
+              <Heart size={14} className="text-red-400 fill-red-400" />
+            </p>
+            <div className="flex items-center gap-3 text-xs">
+              <Link
+                href="/resume"
+                className="text-faint hover:text-emerald-400 transition-colors"
+              >
+                Resume
+              </Link>
+              <span className="text-faint/40">·</span>
+              <a
+                href="/sitemap.xml"
+                className="text-faint hover:text-muted transition-colors"
+              >
+                Sitemap
+              </a>
+            </div>
+          </div>
 
-          {/* Social links */}
+          {/* Social links + back to top */}
           <div className="flex items-center gap-4">
             {[
               { icon: Github, href: siteConfig.links.github, label: "GitHub" },
@@ -32,6 +51,11 @@ export default function Footer() {
                 label: "LinkedIn",
               },
               { icon: Mail, href: siteConfig.links.email, label: "Email" },
+              {
+                icon: Rss,
+                href: "/feed.xml",
+                label: "RSS Feed",
+              },
             ].map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
@@ -44,6 +68,7 @@ export default function Footer() {
                 <Icon size={18} />
               </a>
             ))}
+            <BackToTop />
           </div>
         </div>
       </div>
