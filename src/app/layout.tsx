@@ -98,6 +98,9 @@ export default function RootLayout({
               sameAs: [
                 "https://linkedin.com/in/pranav2579",
                 "https://github.com/pranav2579",
+                "https://twitter.com/pranav2579",
+                "https://www.youtube.com/channel/UC6et41KnTGyocDtbjeOQ8pw",
+                "https://pranav2579.medium.com",
               ],
               worksFor: {
                 "@type": "Organization",

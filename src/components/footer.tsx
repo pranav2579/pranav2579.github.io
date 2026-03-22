@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail, Heart, Rss } from "lucide-react";
+import { Github, Linkedin, Mail, Heart, Rss, Twitter, PenLine, Youtube } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 
 export default function Footer() {
@@ -48,6 +48,21 @@ export default function Footer() {
                 icon: Linkedin,
                 href: siteConfig.links.linkedin,
                 label: "LinkedIn",
+              },
+              {
+                icon: Twitter,
+                href: siteConfig.links.twitter,
+                label: "Twitter",
+              },
+              {
+                icon: Youtube,
+                href: siteConfig.links.youtube,
+                label: "YouTube",
+              },
+              {
+                icon: PenLine,
+                href: siteConfig.links.medium,
+                label: "Medium",
               },
               { icon: Mail, href: siteConfig.links.email, label: "Email" },
               {

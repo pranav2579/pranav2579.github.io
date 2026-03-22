@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useInView, useMotionValueEvent, useScroll } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, FileText } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, FileText, Twitter, PenLine, Youtube } from "lucide-react";
 import Link from "next/link";
 import { siteConfig, stats, heroData } from "@/lib/data";
 
@@ -141,6 +141,9 @@ export default function Hero() {
             {[
               { icon: Github, href: siteConfig.links.github, label: "GitHub" },
               { icon: Linkedin, href: siteConfig.links.linkedin, label: "LinkedIn" },
+              { icon: Twitter, href: siteConfig.links.twitter, label: "Twitter" },
+              { icon: Youtube, href: siteConfig.links.youtube, label: "YouTube" },
+              { icon: PenLine, href: siteConfig.links.medium, label: "Medium" },
               { icon: Mail, href: siteConfig.links.email, label: "Email" },
             ].map(({ icon: Icon, href, label }) => (
               <a

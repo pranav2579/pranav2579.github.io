@@ -3,9 +3,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import { Globe, GraduationCap, Heart, Linkedin } from "lucide-react";
+import { Globe, GraduationCap, Heart, Linkedin, Sparkles, ExternalLink } from "lucide-react";
 import SectionHeading from "./section-heading";
-import { education, volunteerExperience, siteConfig, languages, quickFacts } from "@/lib/data";
+import { education, volunteerExperience, siteConfig, languages, quickFacts, beyondCode } from "@/lib/data";
 
 export default function About() {
   const ref = useRef(null);
@@ -148,6 +148,43 @@ export default function About() {
                     <span className="text-faint text-sm">{lang.name}</span>
                     <span className="text-body text-sm font-medium">{lang.level}</span>
                   </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Beyond Code card */}
+            <div className="p-6 rounded-2xl border border-edge bg-card">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-lg bg-accent-subtle">
+                  <Sparkles className="text-emerald-400" size={24} />
+                </div>
+                <h3 className="text-heading font-semibold text-lg">Beyond Code</h3>
+              </div>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {beyondCode.interests.map((interest) => (
+                  <span
+                    key={interest}
+                    className="px-3 py-1 rounded-full text-xs font-medium bg-accent-subtle text-emerald-400 border border-emerald-400/20"
+                  >
+                    {interest}
+                  </span>
+                ))}
+              </div>
+              <div className="space-y-3">
+                {beyondCode.community.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between group"
+                  >
+                    <div>
+                      <span className="text-body text-sm font-medium group-hover:text-emerald-400 transition-colors">{item.label}</span>
+                      <p className="text-faint text-xs">{item.description}</p>
+                    </div>
+                    <ExternalLink size={14} className="text-faint group-hover:text-emerald-400 transition-colors shrink-0" />
+                  </a>
                 ))}
               </div>
             </div>

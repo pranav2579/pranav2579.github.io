@@ -19,6 +19,9 @@ export const siteConfig = {
     github: "https://github.com/pranav2579",
     linkedin: "https://linkedin.com/in/pranav2579",
     email: "mailto:hello@pranavtripathi.dev",
+    twitter: "https://twitter.com/pranav2579",
+    medium: "https://pranav2579.medium.com",
+    youtube: "https://www.youtube.com/channel/UC6et41KnTGyocDtbjeOQ8pw",
   },
 };
 
@@ -251,6 +254,30 @@ export const projects: Project[] = [
     featured: true,
     link: "https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home",
   },
+  {
+    id: "interview-prep-guide",
+    title: "Technical Interview Preparation Guide",
+    description:
+      "Comprehensive open-source guide for FAANG technical interview preparation",
+    longDescription:
+      "Curated and maintained a comprehensive technical interview preparation resource covering data structures & algorithms, system design, and coding practice — with book recommendations, LeetCode patterns, course links, and video lectures used by thousands of engineers preparing for FAANG interviews.",
+    impact: "Open Source Community Resource",
+    tech: ["Data Structures", "Algorithms", "System Design", "Interview Prep"],
+    featured: false,
+    link: "https://github.com/pranav2579/Technical-Interview-Preparation",
+  },
+  {
+    id: "portfolio-site",
+    title: "Personal Portfolio Website",
+    description:
+      "Modern, accessible portfolio built with Next.js 16, Tailwind CSS v4, and Framer Motion",
+    longDescription:
+      "Designed and built a fully responsive, accessible portfolio site with dark/light theme, blog with MDX, SEO optimization, JSON-LD structured data, and static export to GitHub Pages. Features include animated counters, reading progress, table of contents, copy-code buttons, and WCAG-compliant focus management.",
+    impact: "Open Source",
+    tech: ["Next.js", "React 19", "Tailwind CSS", "Framer Motion", "TypeScript"],
+    featured: false,
+    link: "https://github.com/pranav2579/pranav2579.github.io",
+  },
 ];
 
 export interface SkillCategory {
@@ -477,3 +504,29 @@ export const languages = [
   { name: "English", level: "Professional (IELTS 8.5)" },
   { name: "Hindi", level: "Native" },
 ];
+
+export const beyondCode = {
+  interests: ["Fitness", "Writing", "Travel", "Technology", "Reading"],
+  community: [
+    {
+      label: "YouTube",
+      description: "Interview preparation videos",
+      url: "https://www.youtube.com/channel/UC6et41KnTGyocDtbjeOQ8pw",
+    },
+    {
+      label: "Open Source",
+      description: "Technical interview prep guide on GitHub",
+      url: "https://github.com/pranav2579/Technical-Interview-Preparation",
+    },
+    {
+      label: "Medium",
+      description: "Technical writing & articles",
+      url: "https://pranav2579.medium.com",
+    },
+    {
+      label: "Goodreads",
+      description: "Book reviews & reading list",
+      url: "https://www.goodreads.com/pranav2579",
+    },
+  ],
+};
