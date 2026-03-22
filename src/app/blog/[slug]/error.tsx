@@ -1,8 +1,13 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 
 export default function BlogError({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+  useEffect(() => {
+    console.error("Application error:", error);
+  }, [error]);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-surface px-6">
       <div className="text-center max-w-md">

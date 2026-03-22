@@ -90,6 +90,7 @@ export default function TableOfContents({
       <div className="xl:hidden mb-8 rounded-xl border border-edge bg-card p-4">
         <button
           onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
           className="flex w-full items-center justify-between text-sm font-semibold text-heading"
         >
           <span className="flex items-center gap-2">

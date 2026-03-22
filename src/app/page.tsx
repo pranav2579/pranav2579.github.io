@@ -1,13 +1,16 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import About from "@/components/about";
-import Experience from "@/components/experience";
-import Projects from "@/components/projects";
+import MidPageCta from "@/components/mid-page-cta";
 import Skills from "@/components/skills";
 import Achievements from "@/components/achievements";
 import Testimonials from "@/components/testimonials";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
+
+const Experience = dynamic(() => import("@/components/experience"));
+const Projects = dynamic(() => import("@/components/projects"));
 
 export default function Home() {
   return (
@@ -18,6 +21,7 @@ export default function Home() {
         <About />
         <Experience />
         <Projects />
+        <MidPageCta />
         <Skills />
         <Achievements />
         <Testimonials />

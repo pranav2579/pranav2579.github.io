@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import GithubSlugger from "github-slugger";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -11,22 +12,17 @@ export interface TocHeading {
   level: 2 | 3;
 }
 
-export function extractHeadings(rawContent: string): TocHeading[] {
+export function extractHeadings(content: string): TocHeading[] {
+  const slugger = new GithubSlugger();
+  const headingRegex = /^(#{2,3})\s+(.+)$/gm;
   const headings: TocHeading[] = [];
-  const lines = rawContent.split("\n");
-
-  for (const line of lines) {
-    const match = line.match(/^(#{2,3})\s+(.+)$/);
-    if (match) {
-      const level = match[1].length as 2 | 3;
-      const text = match[2].trim();
-      const id = text
-        .toLowerCase()
-        .replace(/[^\w\s-]/g, "")
-        .replace(/\s+/g, "-");
-      headings.push({ id, text, level });
-    }
+  let match;
+  while ((match = headingRegex.exec(content)) !== null) {
+    headings.push({
+      id: slugger.slug(match[2]),
+      text: match[2],
+      level: match[1].length as 2 | 3,
+    });
   }
-
   return headings;
 }

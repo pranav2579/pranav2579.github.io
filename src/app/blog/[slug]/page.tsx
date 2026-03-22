@@ -6,12 +6,14 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeHighlight from "rehype-highlight";
 import { getAllPosts, getPostBySlug } from "@/lib/mdx";
+import { projects } from "@/lib/data";
 import Navbar from "@/components/navbar";
 import CopyCodeButtons from "@/components/copy-code-button";
 import Footer from "@/components/footer";
 import ReadingProgress from "@/components/reading-progress";
 import TableOfContents from "@/components/table-of-contents";
 import ShareButtons from "@/components/share-buttons";
+import BlogFooterCta from "@/components/blog-footer-cta";
 import { extractHeadings } from "@/lib/utils";
 
 export function generateStaticParams() {
@@ -77,6 +79,7 @@ export default async function BlogPostPage({
 
   const headings = extractHeadings(post.content);
   const relatedPosts = getRelatedPosts(slug, post.frontmatter.tags);
+  const linkedProject = projects.find((p) => p.blogSlug === slug);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -154,9 +157,24 @@ export default async function BlogPostPage({
                 <div className="mt-6 h-px bg-edge" />
               </header>
 
+              {linkedProject && (
+                <Link
+                  href="/#projects"
+                  className="mb-8 flex items-center gap-3 rounded-xl border border-edge bg-card px-4 py-3 text-sm text-muted hover:border-emerald-400/30 hover:text-emerald-400 transition-all"
+                >
+                  <span>🔗</span>
+                  <span>
+                    See the project:{" "}
+                    <span className="font-semibold text-heading">
+                      {linkedProject.title}
+                    </span>
+                  </span>
+                </Link>
+              )}
+
               <ShareButtons title={post.frontmatter.title} slug={slug} />
 
-              <div className="prose prose-zinc dark:prose-invert max-w-none prose-headings:text-heading prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-body prose-p:leading-relaxed prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-heading prose-code:text-emerald-400 prose-code:bg-tag prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none prose-pre:bg-card prose-pre:border prose-pre:border-edge prose-pre:rounded-xl prose-blockquote:border-emerald-400 prose-blockquote:text-muted prose-li:text-body prose-ol:text-body prose-ul:text-body">
+              <div className="prose prose-zinc dark:prose-invert max-w-none prose-headings:text-heading prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-body prose-p:leading-relaxed prose-a:text-accent-text prose-a:no-underline hover:prose-a:underline prose-strong:text-heading prose-code:text-accent-text prose-code:bg-tag prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none prose-pre:bg-card prose-pre:border prose-pre:border-edge prose-pre:rounded-xl prose-blockquote:border-emerald-400 prose-blockquote:text-muted prose-li:text-body prose-ol:text-body prose-ul:text-body">
                 <MDXRemote
                   source={post.content}
                   options={{
@@ -178,6 +196,8 @@ export default async function BlogPostPage({
           <div className="mt-12 mx-auto max-w-3xl xl:max-w-none">
             <ShareButtons title={post.frontmatter.title} slug={slug} />
           </div>
+
+          <BlogFooterCta />
 
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
@@ -244,6 +264,22 @@ export default async function BlogPostPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* BreadcrumbList JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pranavtripathi.dev' },
+              { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://pranavtripathi.dev/blog' },
+              { '@type': 'ListItem', position: 3, name: post.frontmatter.title, item: `https://pranavtripathi.dev/blog/${slug}` },
+            ],
+          }),
+        }}
       />
 
       <Footer />

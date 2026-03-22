@@ -76,7 +76,7 @@ export default function Footer() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-faint hover:text-emerald-400 transition-colors"
+                className="min-h-11 min-w-11 flex items-center justify-center text-faint hover:text-emerald-400 transition-colors"
                 aria-label={label}
               >
                 <Icon size={18} />

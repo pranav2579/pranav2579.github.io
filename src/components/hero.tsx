@@ -121,19 +121,19 @@ export default function Hero() {
               View My Work
               <ArrowDown size={18} className="group-hover:translate-y-0.5 transition-transform" />
             </a>
-            <a
-              href="#contact"
-              className="flex items-center gap-2 px-8 py-4 border border-edge hover:border-muted text-body hover:text-heading rounded-full transition-all"
-            >
-              Get in Touch
-            </a>
             <Link
               href="/resume"
-              className="hidden sm:flex items-center gap-2 px-8 py-4 border border-edge/50 hover:border-emerald-400/50 text-faint hover:text-emerald-400 rounded-full transition-all"
+              className="flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border border-edge hover:border-muted text-body hover:text-heading rounded-full transition-all"
             >
               <FileText size={18} />
               View Resume
             </Link>
+            <a
+              href="#contact"
+              className="flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border border-edge/50 hover:border-emerald-400/50 text-faint hover:text-emerald-400 rounded-full transition-all"
+            >
+              Get in Touch
+            </a>
           </div>
 
           {/* Social links */}

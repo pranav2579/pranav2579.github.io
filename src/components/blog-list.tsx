@@ -12,8 +12,23 @@ interface BlogListProps {
   posts: BlogListPost[];
 }
 
+function getInitialTag(): string | null {
+  if (typeof window === "undefined") return null;
+  const match = window.location.hash.match(/^#tag=(.+)$/);
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
 export default function BlogList({ posts }: BlogListProps) {
-  const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [activeTag, setActiveTag] = useState<string | null>(getInitialTag);
+
+  const handleTagClick = (tag: string | null) => {
+    setActiveTag(tag);
+    if (tag) {
+      window.location.hash = `tag=${encodeURIComponent(tag)}`;
+    } else {
+      history.replaceState(null, "", window.location.pathname);
+    }
+  };
 
   const allTags = Array.from(
     new Set(posts.flatMap((p) => p.frontmatter.tags))
@@ -28,7 +43,7 @@ export default function BlogList({ posts }: BlogListProps) {
       {/* Tag filter bar */}
       <div className="mb-10 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
         <button
-          onClick={() => setActiveTag(null)}
+          onClick={() => handleTagClick(null)}
           className={`shrink-0 rounded-full border px-4 py-1.5 text-xs font-medium transition-colors ${
             activeTag === null
               ? "border-emerald-400 bg-emerald-400/10 text-emerald-400"
@@ -40,7 +55,7 @@ export default function BlogList({ posts }: BlogListProps) {
         {allTags.map((tag) => (
           <button
             key={tag}
-            onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+            onClick={() => handleTagClick(activeTag === tag ? null : tag)}
             className={`shrink-0 rounded-full border px-4 py-1.5 text-xs font-medium transition-colors ${
               activeTag === tag
                 ? "border-emerald-400 bg-emerald-400/10 text-emerald-400"

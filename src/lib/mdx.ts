@@ -23,21 +23,21 @@ function validateFrontmatter(
   data: Record<string, unknown>,
   filename: string
 ): BlogFrontmatter {
-  const title = typeof data.title === "string" ? data.title : filename.replace(/\.mdx$/, "");
-  const description = typeof data.description === "string" ? data.description : "";
-  const date = typeof data.date === "string" ? data.date : new Date().toISOString();
+  if (typeof data.title !== "string" || !data.title) {
+    throw new Error(`[mdx] Missing or invalid "title" in ${filename}`);
+  }
+  if (typeof data.date !== "string" || !data.date) {
+    throw new Error(`[mdx] Missing or invalid "date" in ${filename}`);
+  }
+  if (typeof data.description !== "string" || !data.description) {
+    throw new Error(`[mdx] Missing or invalid "description" in ${filename}`);
+  }
+
   const tags = Array.isArray(data.tags)
     ? data.tags.filter((t): t is string => typeof t === "string")
     : [];
 
-  if (!data.title) {
-    console.warn(`[mdx] Warning: Missing title in ${filename}, using filename as fallback`);
-  }
-  if (!data.date) {
-    console.warn(`[mdx] Warning: Missing date in ${filename}, using current date as fallback`);
-  }
-
-  return { title, description, date, tags };
+  return { title: data.title, description: data.description, date: data.date, tags };
 }
 
 export function getAllPosts(): Omit<BlogPost, "content">[] {

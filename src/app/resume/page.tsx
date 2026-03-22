@@ -71,7 +71,7 @@ export default function ResumePage() {
 
         {/* Print hint — hidden in print */}
         <p className="text-xs text-faint text-center mb-8 no-print">
-          Tip: Press <kbd className="px-1.5 py-0.5 rounded bg-surface-alt text-muted text-xs font-mono border border-edge">⌘/Ctrl + P</kbd> to save as PDF
+          Tip: Use your browser&apos;s &ldquo;Save as PDF&rdquo; option in the print dialog, or press <kbd className="px-1.5 py-0.5 rounded bg-surface-alt text-muted text-xs font-mono border border-edge">⌘/Ctrl + P</kbd>
         </p>
 
         {/* ─── Header ─── */}
@@ -189,7 +189,7 @@ export default function ResumePage() {
                   {cat.name}
                 </h3>
                 <p className="text-xs text-muted leading-relaxed">
-                  {cat.skills.join(", ")}
+                  {cat.skills.map((s) => s.name).join(", ")}
                 </p>
               </div>
             ))}
@@ -199,7 +199,7 @@ export default function ResumePage() {
             {skillCategories.map((cat) => (
               <p key={cat.name} className="text-xs text-gray-800">
                 <span className="font-semibold text-black">{cat.name}:</span>{" "}
-                {cat.skills.join(", ")}
+                {cat.skills.map((s) => s.name).join(", ")}
               </p>
             ))}
           </div>

@@ -76,6 +76,17 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        {/*
+          Security meta tags for static export.
+          Note: X-Frame-Options and full CSP are best set as HTTP headers
+          via your hosting platform (e.g. GitHub Pages _headers, Cloudflare,
+          or Vercel vercel.json) — they cannot be reliably enforced via meta tags.
+        */}
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+        <meta httpEquiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+
+        {/* Inline theme init to prevent FOUC */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var d=localStorage.getItem('theme');if(d==='dark'||(!d&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}else{document.documentElement.classList.remove('dark')}}catch(e){document.documentElement.classList.add('dark')}})()`,

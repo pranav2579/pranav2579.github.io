@@ -1,10 +1,12 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Star } from "lucide-react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
+import { Star, ChevronDown } from "lucide-react";
 import SectionHeading from "./section-heading";
 import { experiences } from "@/lib/data";
+
+const PREVIEW_ACHIEVEMENTS = 2;
 
 const companyColors: Record<string, string> = {
   "Microsoft": "bg-blue-500/10 text-blue-400 border-blue-500/20",
@@ -37,9 +39,56 @@ function extractYear(period: string): string | null {
   return match ? match[1] : null;
 }
 
+function AchievementItem({ achievement }: { achievement: string }) {
+  const isLeadership = isLeadershipBullet(achievement);
+  return (
+    <li
+      className={`flex gap-2 text-sm text-body ${
+        isLeadership ? "border-l-2 border-emerald-400/40 pl-2" : ""
+      }`}
+    >
+      {isLeadership ? (
+        <Star className="text-emerald-400 shrink-0 mt-0.5" size={14} />
+      ) : (
+        <span className="text-emerald-400 shrink-0 mt-1">▹</span>
+      )}
+      <span>
+        {isLeadership ? (
+          <>
+            <strong className="text-emerald-300">
+              {achievement.split(" ")[0]}
+            </strong>{" "}
+            {achievement.split(" ").slice(1).join(" ")}
+          </>
+        ) : (
+          achievement
+        )}
+      </span>
+    </li>
+  );
+}
+
+const detailsVariants = {
+  hidden: { height: 0, opacity: 0 },
+  visible: { height: "auto", opacity: 1 },
+};
+
 export default function Experience() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  // First entry (most recent/current role) expanded by default
+  const [expanded, setExpanded] = useState<Record<string, boolean>>(() => {
+    const initial: Record<string, boolean> = {};
+    if (experiences.length > 0) {
+      initial[experiences[0].id] = true;
+    }
+    return initial;
+  });
+
+  const toggleExpanded = (id: string) => {
+    setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   // Compute unique year markers — only show a year the first time it appears
   const shownYears = new Set<string>();
@@ -70,6 +119,9 @@ export default function Experience() {
               "bg-gray-500/10 text-gray-400 border-gray-500/20";
             const initials = getCompanyInitials(exp.company);
             const yearMarker = yearMarkers[index];
+            const isExpanded = !!expanded[exp.id];
+            const previewAchievements = exp.achievements.slice(0, PREVIEW_ACHIEVEMENTS);
+            const remainingAchievements = exp.achievements.slice(PREVIEW_ACHIEVEMENTS);
 
             return (
               <motion.div
@@ -111,7 +163,7 @@ export default function Experience() {
                         <h3 className="text-heading font-bold text-lg">
                           {exp.role}
                         </h3>
-                        <p className="text-emerald-400 font-medium">
+                        <p className="text-accent-text font-medium">
                           {exp.company}
                         </p>
                         <p className="text-faint text-sm mt-1">
@@ -123,57 +175,67 @@ export default function Experience() {
                     {/* Description */}
                     <p className="text-muted text-sm mb-4">{exp.description}</p>
 
-                    {/* Achievements */}
-                    <ul className="space-y-2 mb-4">
-                      {exp.achievements.map((achievement, i) => {
-                        const isLeadership = isLeadershipBullet(achievement);
-                        return (
-                          <li
-                            key={i}
-                            className={`flex gap-2 text-sm text-body ${
-                              isLeadership
-                                ? "border-l-2 border-emerald-400/40 pl-2"
-                                : ""
-                            }`}
-                          >
-                            {isLeadership ? (
-                              <Star
-                                className="text-emerald-400 shrink-0 mt-0.5"
-                                size={14}
-                              />
-                            ) : (
-                              <span className="text-emerald-400 shrink-0 mt-1">
-                                ▹
-                              </span>
-                            )}
-                            <span>
-                              {isLeadership ? (
-                                <>
-                                  <strong className="text-emerald-300">
-                                    {achievement.split(" ")[0]}
-                                  </strong>{" "}
-                                  {achievement.split(" ").slice(1).join(" ")}
-                                </>
-                              ) : (
-                                achievement
-                              )}
-                            </span>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                    {/* Preview achievements (always visible) */}
+                    {previewAchievements.length > 0 && (
+                      <ul className="space-y-2 mb-3">
+                        {previewAchievements.map((achievement, i) => (
+                          <AchievementItem key={i} achievement={achievement} />
+                        ))}
+                      </ul>
+                    )}
 
-                    {/* Tech stack */}
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 text-xs rounded-full bg-tag text-muted border border-tag-border"
+                    {/* Expandable details: remaining achievements + tech stack */}
+                    <AnimatePresence initial={false}>
+                      {isExpanded && (
+                        <motion.div
+                          key="details"
+                          variants={detailsVariants}
+                          initial="hidden"
+                          animate="visible"
+                          exit="hidden"
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden"
                         >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                          {remainingAchievements.length > 0 && (
+                            <ul className="space-y-2 mb-4">
+                              {remainingAchievements.map((achievement, i) => (
+                                <AchievementItem
+                                  key={i + PREVIEW_ACHIEVEMENTS}
+                                  achievement={achievement}
+                                />
+                              ))}
+                            </ul>
+                          )}
+
+                          {/* Tech stack */}
+                          <div className="flex flex-wrap gap-2 mb-1">
+                            {exp.tech.map((tech) => (
+                              <span
+                                key={tech}
+                                className="px-3 py-1 text-xs rounded-full bg-tag text-muted border border-tag-border"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {/* Toggle button */}
+                    <button
+                      onClick={() => toggleExpanded(exp.id)}
+                      aria-expanded={isExpanded}
+                      className="mt-3 inline-flex items-center gap-1 text-xs text-emerald-400 hover:text-emerald-300 transition-colors cursor-pointer"
+                    >
+                      <span>{isExpanded ? "Hide details" : "Show details"}</span>
+                      <ChevronDown
+                        size={14}
+                        className={`transition-transform duration-300 ${
+                          isExpanded ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
                   </div>
                 </div>
 

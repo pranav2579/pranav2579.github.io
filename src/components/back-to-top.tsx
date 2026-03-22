@@ -25,7 +25,7 @@ export default function BackToTop() {
             const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
             window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
           }}
-          className="fixed bottom-8 right-8 z-40 p-3 rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/25 hover:bg-emerald-400 hover:shadow-emerald-400/30 transition-colors"
+          className="fixed bottom-[max(2rem,env(safe-area-inset-bottom,2rem))] right-8 z-40 p-3 rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/25 hover:bg-emerald-400 hover:shadow-emerald-400/30 transition-colors"
           aria-label="Back to top"
         >
           <ChevronUp size={20} />

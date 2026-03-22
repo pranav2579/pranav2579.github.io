@@ -4,6 +4,16 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import SectionHeading from "./section-heading";
 import { skillCategories } from "@/lib/data";
+import type { Skill } from "@/lib/data";
+
+const skillClasses: Record<Skill["level"], string> = {
+  expert:
+    "px-3 py-1.5 text-xs rounded-lg bg-tag border border-tag-border hover:border-emerald-400/30 transition-all text-accent-text font-medium",
+  proficient:
+    "px-3 py-1.5 text-xs rounded-lg bg-tag border border-tag-border hover:text-emerald-400 hover:border-emerald-400/30 transition-all text-muted",
+  familiar:
+    "px-2.5 py-1 text-[11px] rounded-lg bg-tag border border-tag-border hover:text-emerald-400 hover:border-emerald-400/30 transition-all text-muted/70",
+};
 
 export default function Skills() {
   const ref = useRef(null);
@@ -37,10 +47,10 @@ export default function Skills() {
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
                     <span
-                      key={skill}
-                      className="px-3 py-1.5 text-xs rounded-lg bg-tag text-muted border border-tag-border hover:text-emerald-400 hover:border-emerald-400/30 transition-all"
+                      key={skill.name}
+                      className={skillClasses[skill.level]}
                     >
-                      {skill}
+                      {skill.name}
                     </span>
                   ))}
                 </div>

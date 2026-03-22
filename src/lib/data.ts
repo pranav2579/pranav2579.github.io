@@ -18,7 +18,7 @@ export const siteConfig = {
   links: {
     github: "https://github.com/pranav2579",
     linkedin: "https://linkedin.com/in/pranav2579",
-    email: "mailto:pranav2579@gmail.com",
+    email: "mailto:hello@pranavtripathi.dev",
     twitter: "https://twitter.com/pranav2579",
     medium: "https://pranav2579.medium.com",
     calendly: "https://calendly.com/pranav2579/30min",
@@ -179,6 +179,7 @@ export interface Project {
   featured: boolean;
   link?: string;
   press?: { title: string; url: string };
+  blogSlug?: string;
 }
 
 export const projects: Project[] = [
@@ -197,6 +198,7 @@ export const projects: Project[] = [
       title: "Microsoft is testing a DALL-E-powered text-to-image creator in Paint",
       url: "https://www.theverge.com/2023/9/22/23885482/microsoft-paint-cocreator-dall-e-ai-images-windows-11",
     },
+    blogSlug: "ai-in-everyday-products",
   },
   {
     id: "windows-backup-restore",
@@ -213,6 +215,7 @@ export const projects: Project[] = [
       title: "Announcing Windows 11 Insider Preview Build 23466",
       url: "https://blogs.windows.com/windows-insider/2023/06/22/announcing-windows-11-insider-preview-build-23466/",
     },
+    blogSlug: "building-at-scale",
   },
   {
     id: "store-ai-review",
@@ -276,72 +279,114 @@ export const projects: Project[] = [
   },
 ];
 
+export interface Skill {
+  name: string;
+  level: "expert" | "proficient" | "familiar";
+}
+
 export interface SkillCategory {
   name: string;
   icon: typeof Code2;
-  skills: string[];
+  skills: Skill[];
 }
 
 export const skillCategories: SkillCategory[] = [
   {
     name: "Languages",
     icon: Code2,
-    skills: ["C#", "Python", "TypeScript", "Java", "SQL", "JavaScript", "Go", "C++"],
+    skills: [
+      { name: "C#", level: "expert" },
+      { name: "Python", level: "proficient" },
+      { name: "TypeScript", level: "proficient" },
+      { name: "Java", level: "proficient" },
+      { name: "SQL", level: "expert" },
+      { name: "JavaScript", level: "proficient" },
+      { name: "Go", level: "familiar" },
+      { name: "C++", level: "familiar" },
+    ],
   },
   {
     name: "Frameworks",
     icon: Layers,
-    skills: [".NET Core", "ASP.NET", "React", "Next.js", "Spring Boot", "Node.js"],
+    skills: [
+      { name: ".NET Core", level: "expert" },
+      { name: "ASP.NET", level: "expert" },
+      { name: "React", level: "expert" },
+      { name: "Next.js", level: "proficient" },
+      { name: "Spring Boot", level: "proficient" },
+      { name: "Node.js", level: "proficient" },
+    ],
   },
   {
     name: "Cloud & Infra",
     icon: Cloud,
     skills: [
-      "Azure Cosmos DB",
-      "Azure Functions",
-      "Azure DevOps",
-      "Docker",
-      "CI/CD",
-      "Kubernetes",
+      { name: "Azure Cosmos DB", level: "expert" },
+      { name: "Azure Functions", level: "expert" },
+      { name: "Azure DevOps", level: "expert" },
+      { name: "Docker", level: "proficient" },
+      { name: "CI/CD", level: "expert" },
+      { name: "Kubernetes", level: "proficient" },
     ],
   },
   {
     name: "Databases",
     icon: Database,
-    skills: ["Cosmos DB", "SQL Server", "PostgreSQL", "Redis", "Oracle DB"],
+    skills: [
+      { name: "Cosmos DB", level: "expert" },
+      { name: "SQL Server", level: "expert" },
+      { name: "PostgreSQL", level: "proficient" },
+      { name: "Redis", level: "proficient" },
+      { name: "Oracle DB", level: "proficient" },
+    ],
   },
   {
     name: "System Design",
     icon: Globe,
     skills: [
-      "Distributed Systems",
-      "Microservices",
-      "Event-Driven Architecture",
-      "REST APIs",
-      "gRPC",
-      "GraphQL",
+      { name: "Distributed Systems", level: "expert" },
+      { name: "Microservices", level: "expert" },
+      { name: "Event-Driven Architecture", level: "proficient" },
+      { name: "REST APIs", level: "expert" },
+      { name: "gRPC", level: "proficient" },
+      { name: "GraphQL", level: "familiar" },
     ],
   },
   {
     name: "AI & ML",
     icon: Brain,
-    skills: ["DALL-E Integration", "NLP", "AI Review Systems", "OpenAI APIs", "Responsible AI", "Threat Modeling"],
+    skills: [
+      { name: "DALL-E Integration", level: "proficient" },
+      { name: "NLP", level: "familiar" },
+      { name: "AI Review Systems", level: "proficient" },
+      { name: "OpenAI APIs", level: "proficient" },
+      { name: "Responsible AI", level: "expert" },
+      { name: "Threat Modeling", level: "proficient" },
+    ],
   },
   {
     name: "Tools & DevOps",
     icon: Terminal,
-    skills: ["Git", "GitHub", "Azure DevOps", "VS Code", "Terraform", "Grafana", "RabbitMQ"],
+    skills: [
+      { name: "Git", level: "expert" },
+      { name: "GitHub", level: "expert" },
+      { name: "Azure DevOps", level: "expert" },
+      { name: "VS Code", level: "expert" },
+      { name: "Terraform", level: "familiar" },
+      { name: "Grafana", level: "proficient" },
+      { name: "RabbitMQ", level: "proficient" },
+    ],
   },
   {
     name: "Frontend",
     icon: Palette,
     skills: [
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Framer Motion",
-      "HTML/CSS",
-      "Responsive Design",
+      { name: "React", level: "expert" },
+      { name: "Next.js", level: "proficient" },
+      { name: "Tailwind CSS", level: "proficient" },
+      { name: "Framer Motion", level: "familiar" },
+      { name: "HTML/CSS", level: "expert" },
+      { name: "Responsive Design", level: "proficient" },
     ],
   },
 ];

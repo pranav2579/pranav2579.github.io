@@ -29,12 +29,14 @@ export default function About() {
           >
             {/* Profile photo */}
             <div className="flex justify-center mb-2">
-              <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-edge shadow-lg shadow-emerald-500/10">
+              <div className="relative w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-edge shadow-lg shadow-emerald-500/10">
                 <Image
                   src="/images/profile.jpg"
                   alt="Pranav Tripathi"
-                  fill
-                  className="object-cover"
+                  width={460}
+                  height={460}
+                  sizes="(max-width: 640px) 128px, (max-width: 768px) 192px, 256px"
+                  className="object-cover w-full h-full"
                   priority
                 />
               </div>

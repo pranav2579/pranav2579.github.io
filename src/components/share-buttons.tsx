@@ -29,9 +29,24 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   };
 
   const copyLink = async () => {
-    await navigator.clipboard.writeText(url);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(url);
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = url;
+        textarea.style.position = "fixed";
+        textarea.style.left = "-9999px";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      console.error("Failed to copy link to clipboard");
+    }
   };
 
   return (
@@ -69,6 +84,9 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
               Copied!
             </span>
           )}
+          <span aria-live="polite" className="sr-only">
+            {copied ? "Link copied to clipboard" : ""}
+          </span>
         </div>
       </div>
     </div>

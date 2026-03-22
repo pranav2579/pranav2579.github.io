@@ -36,7 +36,7 @@ export default function Contact() {
                 {
                   icon: Mail,
                   label: "Email",
-                  value: "pranav2579@gmail.com",
+                  value: "hello@pranavtripathi.dev",
                   href: siteConfig.links.email,
                 },
                 {
