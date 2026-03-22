@@ -11,6 +11,7 @@ import {
   MessageSquare,
   Store,
   Puzzle,
+  Newspaper,
 } from "lucide-react";
 import SectionHeading from "./section-heading";
 import { projects } from "@/lib/data";
@@ -87,21 +88,32 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {/* External product link */}
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-emerald-400 hover:underline opacity-80 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
-                    >
-                      View Product
-                      <ExternalLink size={14} />
-                      <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-                        →
-                      </span>
-                    </a>
-                  )}
+                  {/* External product link + press */}
+                  <div className="flex flex-wrap items-center gap-4 mt-4">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 hover:underline opacity-80 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                      >
+                        View Product
+                        <ExternalLink size={14} />
+                      </a>
+                    )}
+                    {project.press && (
+                      <a
+                        href={project.press.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-emerald-400 transition-colors"
+                        title={project.press.title}
+                      >
+                        <Newspaper size={14} />
+                        In the Press
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 {/* Hover glow effect */}

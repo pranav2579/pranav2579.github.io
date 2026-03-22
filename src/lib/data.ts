@@ -108,7 +108,7 @@ export const experiences: Experience[] = [
   {
     id: "sears",
     company: "Sears Holdings India",
-    role: "Software Engineer",
+    role: "Senior Software Engineer Technical Lead",
     period: "Mar 2016 — Aug 2017",
     location: "Bengaluru, India",
     description:
@@ -178,6 +178,7 @@ export interface Project {
   tech: string[];
   featured: boolean;
   link?: string;
+  press?: { title: string; url: string };
 }
 
 export const projects: Project[] = [
@@ -192,6 +193,10 @@ export const projects: Project[] = [
     tech: ["C#", ".NET Core", "Azure Cosmos DB", "DALL-E", "Azure Functions"],
     featured: true,
     link: "https://www.microsoft.com/en-us/windows/paint",
+    press: {
+      title: "Microsoft is testing a DALL-E-powered text-to-image creator in Paint",
+      url: "https://www.theverge.com/2023/9/22/23885482/microsoft-paint-cocreator-dall-e-ai-images-windows-11",
+    },
   },
   {
     id: "windows-backup-restore",
@@ -204,6 +209,10 @@ export const projects: Project[] = [
     tech: ["C#", ".NET Core", "Azure", "Windows Platform"],
     featured: true,
     link: "https://support.microsoft.com/en-us/windows/back-up-your-windows-pc-87a81f44-c736-4542-b84e-7011b2523df3",
+    press: {
+      title: "Announcing Windows 11 Insider Preview Build 23466",
+      url: "https://blogs.windows.com/windows-insider/2023/06/22/announcing-windows-11-insider-preview-build-23466/",
+    },
   },
   {
     id: "store-ai-review",
@@ -216,6 +225,10 @@ export const projects: Project[] = [
     tech: ["C#", "Azure AI", "NLP", "Azure Cosmos DB"],
     featured: true,
     link: "https://apps.microsoft.com",
+    press: {
+      title: "Microsoft is adding AI-generated review summaries to the Microsoft Store",
+      url: "https://www.theverge.com/2023/2/7/23589568/microsoft-store-ai-review-summaries",
+    },
   },
   {
     id: "windows-store-spark",
@@ -228,6 +241,10 @@ export const projects: Project[] = [
     tech: ["C#", ".NET Core", "Azure", "Microservices", "SQL Server"],
     featured: true,
     link: "https://apps.microsoft.com",
+    press: {
+      title: "Microsoft reveals the new Microsoft Store for Windows 11",
+      url: "https://www.theverge.com/2021/6/24/22548612/microsoft-store-windows-11-android-apps",
+    },
   },
   {
     id: "edge-extensions",
@@ -240,6 +257,10 @@ export const projects: Project[] = [
     tech: ["C#", ".NET", "Azure", "REST APIs", "Partner Center"],
     featured: true,
     link: "https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home",
+    press: {
+      title: "Developers Can Now Publish Extensions for the New Microsoft Edge",
+      url: "https://www.mspoweruser.com/developers-can-now-publish-their-own-extensions-for-the-new-microsoft-edge/",
+    },
   },
   {
     id: "interview-prep-guide",
@@ -277,12 +298,12 @@ export const skillCategories: SkillCategory[] = [
   {
     name: "Languages",
     icon: Code2,
-    skills: ["C#", "Python", "TypeScript", "Java", "SQL", "JavaScript"],
+    skills: ["C#", "Python", "TypeScript", "Java", "SQL", "JavaScript", "Go", "C++"],
   },
   {
     name: "Frameworks",
     icon: Layers,
-    skills: [".NET Core", "ASP.NET", "React", "Next.js", "Node.js", "J2EE"],
+    skills: [".NET Core", "ASP.NET", "React", "Next.js", "Spring Boot", "Node.js"],
   },
   {
     name: "Cloud & Infra",
@@ -309,19 +330,19 @@ export const skillCategories: SkillCategory[] = [
       "Microservices",
       "Event-Driven Architecture",
       "REST APIs",
-      "High Availability",
-      "Scalability",
+      "gRPC",
+      "GraphQL",
     ],
   },
   {
     name: "AI & ML",
     icon: Brain,
-    skills: ["DALL-E Integration", "NLP", "AI Review Systems", "OpenAI APIs"],
+    skills: ["DALL-E Integration", "NLP", "AI Review Systems", "OpenAI APIs", "Responsible AI", "Threat Modeling"],
   },
   {
     name: "Tools & DevOps",
     icon: Terminal,
-    skills: ["Git", "GitHub", "Azure DevOps", "VS Code", "Terraform", "Grafana"],
+    skills: ["Git", "GitHub", "Azure DevOps", "VS Code", "Terraform", "Grafana", "RabbitMQ"],
   },
   {
     name: "Frontend",
@@ -465,6 +486,36 @@ export const stats = [
 ];
 
 export const certifications = [
+  {
+    name: "Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900)",
+    issuer: "Microsoft",
+    year: "2026",
+    details: "Credential ID: CF0441CA31C43FB5",
+  },
+  {
+    name: "Microsoft Certified: AI Transformation Leader (AB-731)",
+    issuer: "Microsoft",
+    year: "2026",
+    details: "Credential ID: F9D80BEBCDAA8FA0",
+  },
+  {
+    name: "GitHub Copilot (GH-300)",
+    issuer: "GitHub",
+    year: "2026",
+    details: "Credential ID: F0078272E07AD7D · Expires Jan 2028",
+  },
+  {
+    name: "Microsoft Certified: Azure AI Fundamentals (AI-900)",
+    issuer: "Microsoft",
+    year: "2026",
+    details: "Credential ID: 11F113090317C3AA",
+  },
+  {
+    name: "Microsoft Certified: Azure Fundamentals (AZ-900)",
+    issuer: "Microsoft",
+    year: "2021",
+    details: null,
+  },
   {
     name: "IELTS Academic — 8.5/9.0 (CLB 9)",
     issuer: "British Council",
