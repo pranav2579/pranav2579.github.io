@@ -27,9 +27,27 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
   if (!post) return { title: "Post Not Found" };
 
+  const url = `https://pranavtripathi.dev/blog/${slug}`;
   return {
     title: `${post.frontmatter.title} — Pranav Tripathi`,
     description: post.frontmatter.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      title: post.frontmatter.title,
+      description: post.frontmatter.description,
+      url,
+      publishedTime: post.frontmatter.date,
+      authors: ["Pranav Tripathi"],
+      tags: post.frontmatter.tags,
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: post.frontmatter.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.frontmatter.title,
+      description: post.frontmatter.description,
+      images: ["/og-image.png"],
+    },
   };
 }
 
@@ -66,6 +84,7 @@ export default async function BlogPostPage({
     headline: post.frontmatter.title,
     description: post.frontmatter.description,
     datePublished: post.frontmatter.date,
+    image: "https://pranavtripathi.dev/og-image.png",
     author: {
       "@type": "Person",
       name: "Pranav Tripathi",
