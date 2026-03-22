@@ -274,18 +274,6 @@ export const projects: Project[] = [
     featured: false,
     link: "https://github.com/pranav2579/Technical-Interview-Preparation",
   },
-  {
-    id: "portfolio-site",
-    title: "Personal Portfolio Website",
-    description:
-      "Modern, accessible portfolio built with Next.js 16, Tailwind CSS v4, and Framer Motion",
-    longDescription:
-      "Designed and built a fully responsive, accessible portfolio site with dark/light theme, blog with MDX, SEO optimization, JSON-LD structured data, and static export to GitHub Pages. Features include animated counters, reading progress, table of contents, copy-code buttons, and WCAG-compliant focus management.",
-    impact: "Open Source",
-    tech: ["Next.js", "React 19", "Tailwind CSS", "Framer Motion", "TypeScript"],
-    featured: false,
-    link: "https://github.com/pranav2579/pranav2579.github.io",
-  },
 ];
 
 export interface SkillCategory {

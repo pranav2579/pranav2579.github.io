@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import { Globe, GraduationCap, Heart, Linkedin, Sparkles, ExternalLink, Award } from "lucide-react";
+import { GraduationCap, Heart, Linkedin, Sparkles, ExternalLink, Award } from "lucide-react";
 import SectionHeading from "./section-heading";
 import { education, volunteerExperience, siteConfig, languages, quickFacts, beyondCode, certifications } from "@/lib/data";
 
@@ -89,6 +89,27 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
+            {/* Certifications card — spans 2 cols */}
+            <div className="p-6 rounded-2xl border border-edge bg-card sm:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-lg bg-accent-subtle">
+                  <Award className="text-emerald-400" size={24} />
+                </div>
+                <h3 className="text-heading font-semibold text-lg">Certifications</h3>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {certifications.map((cert) => (
+                  <div key={cert.name}>
+                    <p className="text-heading text-sm font-medium">{cert.name}</p>
+                    <p className="text-emerald-400 text-xs mt-0.5">{cert.issuer} · {cert.year}</p>
+                    {cert.details && (
+                      <p className="text-faint text-xs mt-0.5">{cert.details}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Education card */}
             <div className="p-6 rounded-2xl border border-edge bg-card">
               <div className="flex items-center gap-3 mb-4">
@@ -113,61 +134,6 @@ export default function About() {
                   <div key={fact.label} className="flex flex-col gap-0.5">
                     <span className="text-faint text-sm">{fact.label}</span>
                     <span className="text-body text-sm font-medium">{fact.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Community card */}
-            <div className="p-6 rounded-2xl border border-edge bg-card">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg bg-accent-subtle">
-                  <Heart className="text-emerald-400" size={24} />
-                </div>
-                <h3 className="text-heading font-semibold text-lg">Community</h3>
-              </div>
-              <div>
-                <p className="text-heading font-medium">{volunteerExperience.role}</p>
-                <p className="text-emerald-400 text-sm mt-1">{volunteerExperience.organization}</p>
-                <p className="text-faint text-sm mt-1">{volunteerExperience.period} · {volunteerExperience.location}</p>
-                <p className="text-muted text-sm mt-3">{volunteerExperience.description}</p>
-              </div>
-            </div>
-
-            {/* Languages card */}
-            <div className="p-6 rounded-2xl border border-edge bg-card">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg bg-accent-subtle">
-                  <Globe className="text-emerald-400" size={24} />
-                </div>
-                <h3 className="text-heading font-semibold text-lg">Languages</h3>
-              </div>
-              <div className="space-y-3">
-                {languages.map((lang) => (
-                  <div key={lang.name} className="flex justify-between items-center">
-                    <span className="text-faint text-sm">{lang.name}</span>
-                    <span className="text-body text-sm font-medium">{lang.level}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Certifications card */}
-            <div className="p-6 rounded-2xl border border-edge bg-card">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg bg-accent-subtle">
-                  <Award className="text-emerald-400" size={24} />
-                </div>
-                <h3 className="text-heading font-semibold text-lg">Certifications</h3>
-              </div>
-              <div className="space-y-4">
-                {certifications.map((cert) => (
-                  <div key={cert.name}>
-                    <p className="text-heading text-sm font-medium">{cert.name}</p>
-                    <p className="text-emerald-400 text-xs mt-0.5">{cert.issuer} · {cert.year}</p>
-                    {cert.details && (
-                      <p className="text-faint text-xs mt-0.5">{cert.details}</p>
-                    )}
                   </div>
                 ))}
               </div>
@@ -206,6 +172,30 @@ export default function About() {
                     </div>
                     <ExternalLink size={14} className="text-faint group-hover:text-emerald-400 transition-colors shrink-0" />
                   </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Community & Languages card (merged) */}
+            <div className="p-6 rounded-2xl border border-edge bg-card">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-lg bg-accent-subtle">
+                  <Heart className="text-emerald-400" size={24} />
+                </div>
+                <h3 className="text-heading font-semibold text-lg">Community & Languages</h3>
+              </div>
+              <div className="mb-4">
+                <p className="text-heading font-medium">{volunteerExperience.role}</p>
+                <p className="text-emerald-400 text-sm mt-1">{volunteerExperience.organization}</p>
+                <p className="text-faint text-sm mt-1">{volunteerExperience.period} · {volunteerExperience.location}</p>
+                <p className="text-muted text-sm mt-3">{volunteerExperience.description}</p>
+              </div>
+              <div className="pt-4 border-t border-edge/50 space-y-3">
+                {languages.map((lang) => (
+                  <div key={lang.name} className="flex justify-between items-center">
+                    <span className="text-faint text-sm">{lang.name}</span>
+                    <span className="text-body text-sm font-medium">{lang.level}</span>
+                  </div>
                 ))}
               </div>
             </div>
