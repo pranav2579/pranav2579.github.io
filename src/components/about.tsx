@@ -19,16 +19,16 @@ export default function About() {
           subtitle="The story behind the code"
         />
 
-        <div ref={ref} className="grid md:grid-cols-2 gap-16 items-start">
+        <div ref={ref} className="space-y-16">
           {/* Bio */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="max-w-3xl mx-auto space-y-6 text-center"
           >
             {/* Profile photo */}
-            <div className="flex justify-center md:justify-start mb-2">
+            <div className="flex justify-center mb-2">
               <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-edge shadow-lg shadow-emerald-500/10">
                 <Image
                   src="/images/profile.jpg"
@@ -82,12 +82,12 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Education & Quick Facts */}
+          {/* Cards grid */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {/* Education card */}
             <div className="p-6 rounded-2xl border border-edge bg-card">
@@ -110,7 +110,7 @@ export default function About() {
               <h3 className="text-heading font-semibold text-lg mb-4">Quick Facts</h3>
               <div className="space-y-3">
                 {quickFacts.map((fact) => (
-                  <div key={fact.label} className="flex justify-between items-center">
+                  <div key={fact.label} className="flex flex-col gap-0.5">
                     <span className="text-faint text-sm">{fact.label}</span>
                     <span className="text-body text-sm font-medium">{fact.value}</span>
                   </div>

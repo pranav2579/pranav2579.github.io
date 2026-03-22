@@ -18,7 +18,7 @@ export const siteConfig = {
   links: {
     github: "https://github.com/pranav2579",
     linkedin: "https://linkedin.com/in/pranav2579",
-    email: "mailto:hello@pranavtripathi.dev",
+    email: "mailto:pranav2579@gmail.com",
     twitter: "https://twitter.com/pranav2579",
     medium: "https://pranav2579.medium.com",
     youtube: "https://www.youtube.com/channel/UC6et41KnTGyocDtbjeOQ8pw",
@@ -494,7 +494,7 @@ export const certifications = [
 
 export const quickFacts = [
   { label: "Current Focus", value: "AI-Powered Gaming at XBOX" },
-  { label: "Companies", value: "Microsoft → Workday → Oracle" },
+  { label: "Companies", value: "Microsoft · Workday · Goldman Sachs · Sears · Oracle" },
   { label: "Speciality", value: "AI Products & Distributed Systems" },
   { label: "Scale", value: "400M+ users, 100M+ MAU" },
   { label: "Location", value: "Vancouver, Canada 🇨🇦" },

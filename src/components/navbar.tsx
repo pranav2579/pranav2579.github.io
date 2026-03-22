@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun, Home } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const sectionIds = ["about", "experience", "projects", "skills", "achievements", "testimonials", "contact"];
@@ -110,9 +110,10 @@ export default function Navbar() {
       <nav className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
         <Link
           href="/"
-          className="text-xl font-bold text-heading hover:text-emerald-400 transition-colors font-mono"
+          className="p-2 rounded-lg text-heading hover:text-emerald-400 hover:bg-card transition-all"
+          aria-label="Home"
         >
-          Pranav Tripathi<span className="text-emerald-400">.</span>
+          <Home size={22} />
         </Link>
 
         {/* Desktop nav */}
