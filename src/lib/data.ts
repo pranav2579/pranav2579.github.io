@@ -522,12 +522,6 @@ export const certifications = [
     year: "2022",
     details: "L: 9.0 · R: 9.0 · W: 7.5 · S: 7.5",
   },
-  {
-    name: "BITSAT — Score 345",
-    issuer: "BITS Pilani",
-    year: "2008",
-    details: "Received B.Tech CS invitation from BITS Pilani",
-  },
 ];
 
 export const quickFacts = [
