@@ -36,13 +36,13 @@ export default function Contact() {
                 {
                   icon: Mail,
                   label: "Email",
-                  value: "hello@pranavtripathi.dev",
+                  value: "pranav2579@gmail.com",
                   href: siteConfig.links.email,
                 },
                 {
                   icon: MapPin,
                   label: "Location",
-                  value: "Canada 🇨🇦",
+                  value: "Vancouver, Canada 🇨🇦",
                   href: null,
                 },
                 {
@@ -95,7 +95,7 @@ export default function Contact() {
                 Let&apos;s Connect
               </h3>
               <p className="text-muted text-sm leading-relaxed">
-                Whether you have a project idea, want to collaborate, or just want to chat about tech — I&apos;d love to hear from you.
+                Building AI products, distributed systems, or gaming experiences? Let&apos;s talk about scaling your next big idea.
               </p>
             </div>
 

@@ -18,7 +18,7 @@ export const siteConfig = {
   links: {
     github: "https://github.com/pranav2579",
     linkedin: "https://linkedin.com/in/pranav2579",
-    email: "mailto:hello@pranavtripathi.dev",
+    email: "mailto:pranav2579@gmail.com",
     twitter: "https://twitter.com/pranav2579",
     medium: "https://pranav2579.medium.com",
     calendly: "https://calendly.com/pranav2579/30min",
@@ -489,7 +489,7 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const volunteerExperience = {
-  organization: "Maaillu Prajaaadharana Ashramam",
+  organization: "Maaillu Prajaadharana Ashramam",
   role: "Volunteer",
   period: "Sep 2012",
   location: "Warangal, India",
@@ -515,7 +515,7 @@ export const stats = [
   { label: "Years of Experience", value: "13+" },
   { label: "Users Impacted", value: "400M+" },
   { label: "Products Shipped", value: "10+" },
-  { label: "At Scale Since", value: "2012" },
+  { label: "Building Since", value: "2012" },
 ];
 
 export const certifications = [

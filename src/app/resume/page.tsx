@@ -85,7 +85,7 @@ export default function ResumePage() {
           <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3 text-sm text-muted print:text-xs print:text-gray-600 print-link-clean">
             <span>Vancouver, Canada</span>
             <a href={siteConfig.links.email} className="hover:text-heading transition-colors print:text-gray-600">
-              hello@pranavtripathi.dev
+              pranav2579@gmail.com
             </a>
             <a href={siteConfig.links.linkedin} className="hover:text-heading transition-colors print:text-gray-600">
               linkedin.com/in/pranav2579
