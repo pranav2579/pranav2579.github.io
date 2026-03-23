@@ -85,6 +85,12 @@ export default function Navbar() {
       <nav className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
         <Link
           href="/"
+          onClick={(e) => {
+            if (window.location.pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
           className="p-2 rounded-lg text-heading hover:text-emerald-400 hover:bg-card transition-all"
           aria-label="Home"
         >
