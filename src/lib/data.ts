@@ -427,13 +427,6 @@ export const achievements: Achievement[] = [
     description:
       "Ranked in the top 1% of 350,000+ students in India's most prestigious engineering entrance exam.",
   },
-  {
-    title: "4th Place — National RAD Competition",
-    organization: "Ribbit (British Telecom) at Codefest, IIT BHU",
-    year: "2010",
-    description:
-      "Secured 4th position in a national-level Rapid Application Development contest organized by Ribbit, a wing of British Telecom at Codefest-2010, IIT BHU.",
-  },
 ];
 
 export interface Testimonial {
