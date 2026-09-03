@@ -2,7 +2,7 @@ import { getAllPosts } from "@/lib/mdx";
 
 export const dynamic = "force-static";
 
-const SITE_URL = "https://pranavtripathi.dev";
+const SITE_URL = "https://pranav2579.github.io";
 
 function escapeXml(str: string): string {
   return str

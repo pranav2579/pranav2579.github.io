@@ -52,7 +52,7 @@ ctx.fillText("Microsoft · XBOX Gaming AI", WIDTH / 2, 395);
 // Domain at bottom
 ctx.fillStyle = "#10b981";
 ctx.font = "bold 22px sans-serif";
-ctx.fillText("pranavtripathi.dev", WIDTH / 2, 560);
+ctx.fillText("pranav2579.github.io", WIDTH / 2, 560);
 
 // Save
 const outPath = join(__dirname, "..", "public", "og-image.png");

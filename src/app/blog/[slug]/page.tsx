@@ -29,7 +29,7 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
   if (!post) return { title: "Post Not Found" };
 
-  const url = `https://pranavtripathi.dev/blog/${slug}`;
+  const url = `https://pranav2579.github.io/blog/${slug}`;
   return {
     title: `${post.frontmatter.title} — Pranav Tripathi`,
     description: post.frontmatter.description,
@@ -87,17 +87,17 @@ export default async function BlogPostPage({
     headline: post.frontmatter.title,
     description: post.frontmatter.description,
     datePublished: post.frontmatter.date,
-    image: "https://pranavtripathi.dev/og-image.png",
+    image: "https://pranav2579.github.io/og-image.png",
     author: {
       "@type": "Person",
       name: "Pranav Tripathi",
-      url: "https://pranavtripathi.dev",
+      url: "https://pranav2579.github.io",
     },
     publisher: {
       "@type": "Person",
       name: "Pranav Tripathi",
     },
-    url: `https://pranavtripathi.dev/blog/${post.slug}`,
+    url: `https://pranav2579.github.io/blog/${post.slug}`,
   };
 
   return (
@@ -274,9 +274,9 @@ export default async function BlogPostPage({
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pranavtripathi.dev' },
-              { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://pranavtripathi.dev/blog' },
-              { '@type': 'ListItem', position: 3, name: post.frontmatter.title, item: `https://pranavtripathi.dev/blog/${slug}` },
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pranav2579.github.io' },
+              { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://pranav2579.github.io/blog' },
+              { '@type': 'ListItem', position: 3, name: post.frontmatter.title, item: `https://pranav2579.github.io/blog/${slug}` },
             ],
           }),
         }}

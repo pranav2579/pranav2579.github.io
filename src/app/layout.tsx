@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pranavtripathi.dev"),
+  metadataBase: new URL("https://pranav2579.github.io"),
   title: "Pranav Tripathi — Senior Software Engineer Technical Lead",
   description:
-    "Senior Software Engineer Technical Lead with 13+ years of experience building products used by 400M+ people. IIT BHU alumnus. Microsoft.",
+    "Senior Software Engineer Technical Lead with 14+ years of experience building products used by 400M+ people. IIT BHU alumnus. Microsoft.",
   keywords: [
     "Pranav Tripathi",
     "Senior Software Engineer Technical Lead",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Pranav Tripathi" }],
   alternates: {
-    canonical: "https://pranavtripathi.dev",
+    canonical: "https://pranav2579.github.io",
     types: {
       "application/rss+xml": "/feed.xml",
     },
@@ -38,10 +38,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://pranavtripathi.dev",
+    url: "https://pranav2579.github.io",
     title: "Pranav Tripathi — Senior Software Engineer Technical Lead",
     description:
-      "Senior Software Engineer Technical Lead with 13+ years of experience building products used by 400M+ people. IIT BHU alumnus. Microsoft.",
+      "Senior Software Engineer Technical Lead with 14+ years of experience building products used by 400M+ people. IIT BHU alumnus. Microsoft.",
     siteName: "Pranav Tripathi",
     images: [
       {
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pranav Tripathi — Senior Software Engineer Technical Lead",
     description:
-      "Senior Software Engineer Technical Lead with 13+ years of experience building products used by 400M+ people. IIT BHU alumnus. Microsoft.",
+      "Senior Software Engineer Technical Lead with 14+ years of experience building products used by 400M+ people. IIT BHU alumnus. Microsoft.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -102,10 +102,10 @@ export default function RootLayout({
               "@type": "Person",
               name: "Pranav Tripathi",
               jobTitle: "Senior Software Engineer Technical Lead",
-              url: "https://pranavtripathi.dev",
-              image: "https://pranavtripathi.dev/og-image.png",
+              url: "https://pranav2579.github.io",
+              image: "https://pranav2579.github.io/og-image.png",
               description:
-                "Senior Software Engineer Technical Lead with 13+ years of experience building products used by 400M+ people.",
+                "Senior Software Engineer Technical Lead with 14+ years of experience building products used by 400M+ people.",
               sameAs: [
                 "https://linkedin.com/in/pranav2579",
                 "https://github.com/pranav2579",

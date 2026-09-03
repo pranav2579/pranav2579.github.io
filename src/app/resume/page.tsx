@@ -13,14 +13,14 @@ import { PrintButton } from "./print-button";
 export const metadata: Metadata = {
   title: "Resume — Pranav Tripathi",
   description:
-    "Professional resume of Pranav Tripathi — Senior Software Engineer Technical Lead with 13+ years of experience building products used by 400M+ people.",
+    "Professional resume of Pranav Tripathi — Senior Software Engineer Technical Lead with 14+ years of experience building products used by 400M+ people.",
   alternates: {
     canonical: `${siteConfig.url}/resume`,
   },
   openGraph: {
     title: "Resume — Pranav Tripathi",
     description:
-      "Senior Software Engineer Technical Lead with 13+ years of experience.",
+      "Senior Software Engineer Technical Lead with 14+ years of experience.",
     url: `${siteConfig.url}/resume`,
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Resume — Pranav Tripathi" }],
   },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Resume — Pranav Tripathi",
     description:
-      "Senior Software Engineer Technical Lead with 13+ years of experience.",
+      "Senior Software Engineer Technical Lead with 14+ years of experience.",
     images: ["/og-image.png"],
   },
 };
@@ -94,7 +94,7 @@ export default function ResumePage() {
               github.com/pranav2579
             </a>
             <a href={siteConfig.url} className="hover:text-heading transition-colors print:text-gray-600">
-              pranavtripathi.dev
+              pranav2579.github.io
             </a>
           </div>
         </header>
@@ -107,7 +107,7 @@ export default function ResumePage() {
             Summary
           </h2>
           <p className="text-sm text-body leading-relaxed print:text-xs print:text-gray-800">
-            Senior Software Engineer Technical Lead with 13+ years of experience building and
+            Senior Software Engineer Technical Lead with 14+ years of experience building and
             shipping products used by 400M+ people. Proven track record at Microsoft, Workday,
             Goldman Sachs, and Oracle delivering scalable distributed systems, AI-powered
             consumer features, and enterprise platforms. IIT BHU alumnus. Based in Vancouver, Canada.

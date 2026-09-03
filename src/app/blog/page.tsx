@@ -8,13 +8,13 @@ export const metadata = {
   title: "Blog — Pranav Tripathi",
   description:
     "Thoughts on building at scale, AI in products, and software engineering.",
-  alternates: { canonical: "https://pranavtripathi.dev/blog" },
+  alternates: { canonical: "https://pranav2579.github.io/blog" },
   openGraph: {
     type: "website",
     title: "Blog — Pranav Tripathi",
     description:
       "Thoughts on building at scale, AI in products, and software engineering.",
-    url: "https://pranavtripathi.dev/blog",
+    url: "https://pranav2579.github.io/blog",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Blog — Pranav Tripathi" }],
   },
   twitter: {

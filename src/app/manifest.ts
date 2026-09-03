@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Pranav Tripathi",
     short_name: "PT",
     description:
-      "Staff Software Engineer with 13+ years of experience building products used by 400M+ people.",
+      "Staff Software Engineer with 14+ years of experience building products used by 400M+ people.",
     start_url: "/",
     display: "standalone",
     theme_color: "#09090b",

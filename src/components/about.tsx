@@ -43,7 +43,7 @@ export default function About() {
             </div>
 
             <p className="text-body text-lg leading-relaxed">
-              I&apos;m a builder at heart. For the past 13+ years, I&apos;ve been obsessed with one
+              I&apos;m a builder at heart. For the past 14+ years, I&apos;ve been obsessed with one
               question: <span className="text-emerald-400 font-semibold">how do you engineer products
               that work flawlessly for hundreds of millions of people?</span>
             </p>

@@ -17,7 +17,7 @@ export default function BlogFooterCta() {
       </h2>
       <p className="text-muted text-sm mb-6 leading-relaxed">
         I write about building products at scale, AI/ML in production, and
-        lessons from 13+ years in software engineering.
+        lessons from 14+ years in software engineering.
       </p>
 
       <div className="flex flex-wrap gap-3">

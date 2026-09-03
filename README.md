@@ -1,6 +1,6 @@
 # Pranav Tripathi — Portfolio
 
-🌐 **Live:** [https://pranavtripathi.dev](https://pranavtripathi.dev)
+🌐 **Live:** [https://pranav2579.github.io](https://pranav2579.github.io)
 
 Personal portfolio and blog — a statically exported Next.js site.
 

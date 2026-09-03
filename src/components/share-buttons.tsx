@@ -10,7 +10,7 @@ interface ShareButtonsProps {
 
 export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
-  const url = `https://pranavtripathi.dev/blog/${slug}`;
+  const url = `https://pranav2579.github.io/blog/${slug}`;
 
   const shareTwitter = () => {
     window.open(

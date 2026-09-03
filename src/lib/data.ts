@@ -13,8 +13,8 @@ export const siteConfig = {
   name: "Pranav Tripathi",
   title: "Pranav Tripathi — Senior Software Engineer Technical Lead",
   description:
-    "Senior Software Engineer Technical Lead with 13+ years of experience engineering AI products at 400M+ user scale. XBOX Gaming AI @ Microsoft. IIT BHU alumnus.",
-  url: "https://pranavtripathi.dev",
+    "Senior Software Engineer Technical Lead with 14+ years of experience engineering AI products at 400M+ user scale. XBOX Gaming AI @ Microsoft. IIT BHU alumnus.",
+  url: "https://pranav2579.github.io",
   links: {
     github: "https://github.com/pranav2579",
     linkedin: "https://linkedin.com/in/pranav2579",
@@ -460,7 +460,7 @@ export const testimonials: Testimonial[] = [
       "His growth mindset, positive energy, and natural technical leadership left a strong impression on me. Pranav's passion for learning new technologies and generously sharing what he knows is truly inspiring. He builds connections effortlessly. I recommend Pranav to any software engineering team — he brings heart, curiosity, and leadership wherever he goes.",
     name: "Peng Wang",
     role: "Engineering Leader",
-    company: "Microsoft",
+    company: "Workday",
   },
   {
     id: "soham-chakraborty",
@@ -512,7 +512,7 @@ export const education = {
 };
 
 export const stats = [
-  { label: "Years of Experience", value: "13+" },
+  { label: "Years of Experience", value: "14+" },
   { label: "Users Impacted", value: "400M+" },
   { label: "Products Shipped", value: "10+" },
   { label: "Building Since", value: "2012" },
