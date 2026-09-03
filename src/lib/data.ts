@@ -442,7 +442,7 @@ export const testimonials: Testimonial[] = [
     id: "sriram-sampath",
     quote:
       "Pranav played a key part in the design and execution of bringing native Win32 apps to the Microsoft Store for Windows 11. His knowledge of the app ingestion code base was critical for us to make fast progress. Pranav also helped with contributing to others' success by sharing his knowledge, mentoring and operating with a team-first mindset.",
-    name: "Sriram Sampath",
+    name: "Sriram S",
     role: "Partner Group Engineering Manager",
     company: "Microsoft",
   },
@@ -450,7 +450,7 @@ export const testimonials: Testimonial[] = [
     id: "raunak-oberoi",
     quote:
       "You are amongst the most collaborative, hard-working and customer-centric developers I have come across! I particularly loved how you exhibited critical thinking to assess viability of features not just from a technical standpoint, but from a scalability and experience cohesion standpoint. I am extremely comfortable leaving things to you knowing that you'll take it forward independently.",
-    name: "Raunak Oberoi",
+    name: "Raunak O",
     role: "Product Manager",
     company: "Microsoft",
   },
@@ -458,7 +458,7 @@ export const testimonials: Testimonial[] = [
     id: "peng-wang",
     quote:
       "His growth mindset, positive energy, and natural technical leadership left a strong impression on me. Pranav's passion for learning new technologies and generously sharing what he knows is truly inspiring. He builds connections effortlessly. I recommend Pranav to any software engineering team — he brings heart, curiosity, and leadership wherever he goes.",
-    name: "Peng Wang",
+    name: "Peng W",
     role: "Engineering Leader",
     company: "Workday",
   },
@@ -466,7 +466,7 @@ export const testimonials: Testimonial[] = [
     id: "soham-chakraborty",
     quote:
       "Pranav was instrumental in building some of the foundational services necessary to support new features. He is a very skilled full stack engineer with great attention to details. He was actively involved in coordination and getting alignment with multiple stakeholders which helped the team in a smooth execution and rollout of the new app publishing experience.",
-    name: "Soham Chakraborty",
+    name: "Soham C",
     role: "Senior Software Engineer",
     company: "Apple (ex-Microsoft)",
   },
@@ -474,7 +474,7 @@ export const testimonials: Testimonial[] = [
     id: "priyankana-basak",
     quote:
       "Special mentions to the Paint Co-Creator project that Pranav led — he consistently demonstrated his proactive approach to teamwork, excellent problem-solving skills, and willingness to go the extra mile, that made a significant impact on our projects. His dedication, expertise, and admirable work ethic make him an invaluable addition to any team.",
-    name: "Priyankana Basak",
+    name: "Priyankana B",
     role: "Lead Engineer",
     company: "GEICO (ex-Microsoft)",
   },
@@ -482,7 +482,7 @@ export const testimonials: Testimonial[] = [
     id: "liubov-mykytyn",
     quote:
       "Pranav is one of the main reasons our team became more productive and connected. He constantly seeks improvements in our workflows. He planned and documented everything in his spare time while working on main features, making onboarding much easier for new developers. Working with Pranav was efficient, easy and fun.",
-    name: "Liubov Mykytyn",
+    name: "Liubov M",
     role: "Senior Software Engineer",
     company: "Microsoft",
   },
