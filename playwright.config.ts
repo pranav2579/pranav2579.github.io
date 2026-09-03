@@ -9,9 +9,10 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:3333',
     trace: 'on-first-retry',
+    reducedMotion: 'reduce',
   },
   webServer: {
-    command: 'npx serve out -l 3333 -s',
+    command: 'npx serve out -l 3333',
     port: 3333,
     reuseExistingServer: !process.env.CI,
   },

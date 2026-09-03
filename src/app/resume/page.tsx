@@ -158,7 +158,7 @@ export default function ResumePage() {
                   <h3 className="font-semibold text-heading text-sm print:text-xs print:text-black">
                     {proj.title}
                   </h3>
-                  <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium shrink-0 print:text-gray-600">
+                  <span className="text-xs text-emerald-700 dark:text-emerald-400 font-medium shrink-0 print:text-gray-600">
                     {proj.impact}
                   </span>
                 </div>

@@ -46,7 +46,7 @@ export default function BlogList({ posts }: BlogListProps) {
           onClick={() => handleTagClick(null)}
           className={`shrink-0 rounded-full border px-4 py-1.5 text-xs font-medium transition-colors ${
             activeTag === null
-              ? "border-emerald-400 bg-emerald-400/10 text-emerald-400"
+              ? "border-emerald-400 bg-emerald-400/10 text-emerald-700 dark:text-emerald-400"
               : "border-edge bg-transparent text-muted hover:border-emerald-400/30 hover:text-heading"
           }`}
         >
@@ -58,7 +58,7 @@ export default function BlogList({ posts }: BlogListProps) {
             onClick={() => handleTagClick(activeTag === tag ? null : tag)}
             className={`shrink-0 rounded-full border px-4 py-1.5 text-xs font-medium transition-colors ${
               activeTag === tag
-                ? "border-emerald-400 bg-emerald-400/10 text-emerald-400"
+                ? "border-emerald-400 bg-emerald-400/10 text-emerald-700 dark:text-emerald-400"
                 : "border-edge bg-transparent text-muted hover:border-emerald-400/30 hover:text-heading"
             }`}
           >

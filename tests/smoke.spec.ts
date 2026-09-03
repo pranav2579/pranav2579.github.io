@@ -1,9 +1,7 @@
 import { test, expect } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
 
-// Pre-existing a11y issue: emerald CTA button has insufficient color contrast
-// between its text and animated gradient background. Tracked for future fix.
-const AXE_RULES_TO_SKIP = ['color-contrast']
+const AXE_RULES_TO_SKIP: string[] = []
 
 test.describe('Home Page', () => {
   test('renders key sections', async ({ page }) => {
@@ -48,6 +46,7 @@ test.describe('Home Page', () => {
 
   test('accessibility check', async ({ page }) => {
     await page.goto('/')
+    await page.waitForLoadState('networkidle')
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa'])
       .disableRules(AXE_RULES_TO_SKIP)
@@ -59,7 +58,7 @@ test.describe('Home Page', () => {
 test.describe('Blog', () => {
   test('blog listing page loads', async ({ page }) => {
     await page.goto('/blog')
-    await expect(page.locator('text=Blog')).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Blog' })).toBeVisible()
   })
 
   test('blog post renders', async ({ page }) => {
@@ -69,12 +68,13 @@ test.describe('Blog', () => {
     if (await firstPost.isVisible()) {
       await firstPost.click()
       // Should have article content
-      await expect(page.locator('article')).toBeVisible()
+      await expect(page.locator('article').first()).toBeVisible()
     }
   })
 
   test('blog accessibility check', async ({ page }) => {
     await page.goto('/blog')
+    await page.waitForLoadState('networkidle')
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa'])
       .disableRules(AXE_RULES_TO_SKIP)
@@ -91,6 +91,7 @@ test.describe('Resume', () => {
 
   test('resume accessibility check', async ({ page }) => {
     await page.goto('/resume')
+    await page.waitForLoadState('networkidle')
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa'])
       .disableRules(AXE_RULES_TO_SKIP)

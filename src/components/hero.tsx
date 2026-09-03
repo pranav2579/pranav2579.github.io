@@ -116,7 +116,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <a
               href="#projects"
-              className="group flex items-center gap-2 px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-full transition-all hover:shadow-lg hover:shadow-emerald-500/25"
+              className="group flex items-center gap-2 px-8 py-4 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold rounded-full transition-all hover:shadow-lg hover:shadow-emerald-500/25"
             >
               View My Work
               <ArrowDown size={18} className="group-hover:translate-y-0.5 transition-transform" />
