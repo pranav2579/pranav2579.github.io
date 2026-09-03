@@ -400,6 +400,13 @@ export interface Achievement {
 
 export const achievements: Achievement[] = [
   {
+    title: "XBOX Pace Setter Award August 2026",
+    organization: "Microsoft — XBOX",
+    year: "2026",
+    description:
+      "Awarded the XBOX Pace Setter Award in August 2026 for exceptional pace, impact, and delivery on the XBOX Gaming AI team.",
+  },
+  {
     title: "Be a Leader 2021 Award",
     organization: "Microsoft",
     year: "2021",
